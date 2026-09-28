@@ -2377,7 +2377,11 @@
       });
 
       btnNewQuiz.addEventListener('click', () => {
+        jsonInput.value = '';
+        storage.remove(STORAGE_KEYS.LAST_JSON);
+        clearError();
         showScreen('setup');
+        jsonInput.focus();
       });
 
       // --- INITIALIZATION ---
