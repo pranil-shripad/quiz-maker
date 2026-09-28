@@ -17,6 +17,7 @@ A lightweight, distraction-free single-page quiz application designed for interv
   - **Green Box**: Detailed step-by-step working and solution (`explanation`).
   - **Blue Box**: Strategy and methodology (`approach`).
 - **Targeted Practice**: "Retry only the ones I got wrong" lets you drill down on mistakes until mastered.
+- **Save as PDF**: Export your full results, review questions, your selected answers, correct answers, and all step-by-step explanations directly to a clean, professionally formatted PDF.
 - **Adaptive Dark/Light Theme**: Automatically matches your system preferences with sleek styling.
 - **Local Persistence**: Saves your last pasted questions and records your last 5 quiz scores using `localStorage`.
 

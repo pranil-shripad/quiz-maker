@@ -1028,6 +1028,218 @@
     .hidden {
       display: none !important;
     }
+
+    /* Print / Save as PDF Styles */
+    .print-only {
+      display: none;
+    }
+
+    @media print {
+      @page {
+        margin: 1.2cm 1cm;
+        size: auto;
+      }
+
+      :root {
+        --bg-page: #ffffff !important;
+        --bg-card: #ffffff !important;
+        --bg-subtle: #f8fafc !important;
+        --border-color: #cbd5e1 !important;
+        --text-main: #0f172a !important;
+        --text-muted: #334155 !important;
+        --text-soft: #64748b !important;
+        --primary: #4338ca !important;
+        --primary-light: #e0e7ff !important;
+        --success-bg: #ecfdf5 !important;
+        --success-text: #065f46 !important;
+        --success-border: #a7f3d0 !important;
+        --danger-bg: #fef2f2 !important;
+        --danger-text: #991b1b !important;
+        --danger-border: #fecaca !important;
+        --approach-bg: #eff6ff !important;
+        --approach-text: #1e40af !important;
+        --approach-border: #bfdbfe !important;
+        --warning-bg: #fffbeb !important;
+        --warning-text: #92400e !important;
+        --warning-border: #fde68a !important;
+      }
+
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      body {
+        background: #ffffff !important;
+        color: #0f172a !important;
+        font-size: 10.5pt !important;
+        padding: 0 !important;
+      }
+
+      .app-header,
+      .results-actions,
+      .filter-wrapper,
+      .app-footer,
+      .modal-overlay,
+      #screen-setup,
+      #screen-quiz {
+        display: none !important;
+      }
+
+      #screen-results {
+        display: block !important;
+      }
+
+      .container {
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+
+      .print-only {
+        display: block !important;
+      }
+
+      .print-header {
+        border-bottom: 2px solid #cbd5e1;
+        padding-bottom: 10px;
+        margin-bottom: 16px;
+        display: flex !important;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .print-header-brand {
+        font-size: 1.25rem;
+        font-weight: 800;
+        color: #0f172a;
+      }
+
+      .print-header-date {
+        font-size: 0.85rem;
+        color: #475569;
+      }
+
+      .results-hero {
+        padding: 16px 20px !important;
+        margin-bottom: 20px !important;
+        background: #f8fafc !important;
+        border: 1px solid #cbd5e1 !important;
+        box-shadow: none !important;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        text-align: left !important;
+        gap: 20px !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+
+      .score-circle {
+        width: 80px !important;
+        height: 80px !important;
+        border-width: 4px !important;
+        margin-bottom: 0 !important;
+        flex-shrink: 0 !important;
+      }
+
+      .score-fraction {
+        font-size: 1.25rem !important;
+      }
+
+      .score-percentage {
+        font-size: 0.82rem !important;
+      }
+
+      .result-headline {
+        font-size: 1.2rem !important;
+        margin-bottom: 2px !important;
+      }
+
+      .result-subhead {
+        font-size: 0.88rem !important;
+        margin: 0 !important;
+      }
+
+      .review-card {
+        background: #ffffff !important;
+        border: 1px solid #cbd5e1 !important;
+        box-shadow: none !important;
+        margin-bottom: 16px !important;
+        padding: 16px 18px !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+
+      .review-stem {
+        font-size: 1rem !important;
+        margin-bottom: 12px !important;
+      }
+
+      .review-options {
+        gap: 6px !important;
+        margin-bottom: 12px !important;
+      }
+
+      .review-option-row {
+        padding: 8px 12px !important;
+        font-size: 0.88rem !important;
+        border: 1px solid #e2e8f0 !important;
+      }
+
+      .review-option-row.is-correct {
+        background-color: #ecfdf5 !important;
+        border-color: #10b981 !important;
+        color: #065f46 !important;
+      }
+
+      .review-option-row.is-wrong-choice {
+        background-color: #fef2f2 !important;
+        border-color: #ef4444 !important;
+        color: #991b1b !important;
+      }
+
+      .review-tag.correct-tag {
+        background-color: #059669 !important;
+        color: #ffffff !important;
+      }
+
+      .review-tag.wrong-tag {
+        background-color: #dc2626 !important;
+        color: #ffffff !important;
+      }
+
+      .info-box {
+        padding: 10px 14px !important;
+        font-size: 0.85rem !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+
+      .info-box-wrong {
+        background-color: #fef2f2 !important;
+        border: 1px solid #fca5a5 !important;
+        color: #991b1b !important;
+      }
+
+      .info-box-correct {
+        background-color: #ecfdf5 !important;
+        border: 1px solid #6ee7b7 !important;
+        color: #065f46 !important;
+      }
+
+      .info-box-approach {
+        background-color: #eff6ff !important;
+        border: 1px solid #93c5fd !important;
+        color: #1e40af !important;
+      }
+
+      .info-box-unanswered {
+        background-color: #fffbeb !important;
+        border: 1px solid #fcd34d !important;
+        color: #92400e !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1143,16 +1355,27 @@
 
     <!-- SCREEN 3: RESULTS SCREEN -->
     <section id="screen-results" class="screen">
+      <!-- Print Header (visible only in PDF / Print) -->
+      <div class="print-header print-only">
+        <div class="print-header-brand">⚡ QuizCraft — Results &amp; Step-by-Step Solutions</div>
+        <div id="print-date-stamp" class="print-header-date"></div>
+      </div>
+
       <!-- Big Score Hero -->
       <div class="results-hero">
         <div class="score-circle">
           <div id="results-score-fraction" class="score-fraction">0 / 0</div>
           <div id="results-score-percentage" class="score-percentage">0%</div>
         </div>
-        <h2 id="results-headline" class="result-headline">Quiz Completed!</h2>
-        <p id="results-subhead" class="result-subhead">Review your answers and detailed step-by-step explanations below.</p>
+        <div class="results-hero-text">
+          <h2 id="results-headline" class="result-headline">Quiz Completed!</h2>
+          <p id="results-subhead" class="result-subhead">Review your answers and detailed step-by-step explanations below.</p>
+        </div>
 
         <div class="results-actions">
+          <button id="btn-save-pdf" class="btn btn-secondary" type="button" title="Save or export these results as a PDF document">
+            📥 Save as PDF
+          </button>
           <button id="btn-retry-same" class="btn btn-secondary" type="button">
             🔄 Retry same quiz
           </button>
@@ -1327,6 +1550,7 @@
       const filterAllBtn = document.getElementById('filter-all-btn');
       const filterWrongBtn = document.getElementById('filter-wrong-btn');
       const reviewCardsContainer = document.getElementById('review-cards-container');
+      const btnSavePdf = document.getElementById('btn-save-pdf');
       const btnRetrySame = document.getElementById('btn-retry-same');
       const btnRetryWrong = document.getElementById('btn-retry-wrong');
       const btnNewQuiz = document.getElementById('btn-new-quiz');
@@ -2099,6 +2323,44 @@
       }
 
       // --- RESULTS SCREEN ACTION BUTTONS ---
+      btnSavePdf.addEventListener('click', () => {
+        const total = activeQuestions.length;
+        let correctCount = 0;
+        activeQuestions.forEach((q, idx) => {
+          if (userAnswers[idx] === q.correctIndex) {
+            correctCount++;
+          }
+        });
+        const percentage = Math.round((correctCount / total) * 100);
+
+        // Update print date/summary badge
+        const printDateEl = document.getElementById('print-date-stamp');
+        if (printDateEl) {
+          const now = new Date();
+          const dateStr = now.toLocaleDateString(undefined, {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+          });
+          printDateEl.textContent = `Score: ${correctCount}/${total} (${percentage}%) • Generated on ${dateStr}`;
+        }
+
+        // Temporarily set document title for clean default PDF filename
+        const originalTitle = document.title;
+        const todayStr = new Date().toISOString().slice(0, 10);
+        document.title = `QuizCraft-Results-${correctCount}-of-${total}-${todayStr}`;
+
+        // Trigger native print / Save as PDF
+        window.print();
+
+        // Restore original document title
+        setTimeout(() => {
+          document.title = originalTitle;
+        }, 1500);
+      });
+
       btnRetrySame.addEventListener('click', () => {
         // Retry the exact questions of this quiz
         startQuiz(activeQuestions, false);
