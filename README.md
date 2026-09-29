@@ -1,4 +1,4 @@
-# QuizCraft - Single-Page Quiz Web App
+# Quizzie - Single-Page Quiz Web App
 
 A lightweight, distraction-free single-page quiz application designed for interview preparation and study sessions. Built with plain HTML, modern CSS, and vanilla JavaScript in a single self-contained `index.html` file. Works completely offline, opens locally with a double-click, and deploys effortlessly to Vercel as a static site.
 

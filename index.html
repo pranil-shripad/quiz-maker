@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>QuizCraft — Interview Prep Quiz & Review</title>
+  <title>Quizzie — Interview Prep Quiz & Review</title>
   <meta name="description" content="A self-contained single-page quiz web app for interview preparation. Paste questions from ChatGPT, take the quiz, and review step-by-step solutions.">
   
   <!-- Open Graph / Meta -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="QuizCraft — Interview Prep Quiz & Review">
+  <meta property="og:title" content="Quizzie — Interview Prep Quiz & Review">
   <meta property="og:description" content="Paste JSON quiz questions from ChatGPT, test yourself, and analyze step-by-step explanations and mistake breakdowns.">
 
   <!-- Favicon via inline SVG (Minimalist dark style) -->
@@ -1282,7 +1282,7 @@
     <div class="header-inner">
       <div class="brand">
         <div class="brand-icon">⚡</div>
-        <span>QuizCraft</span>
+        <span>Quizzie</span>
       </div>
       <div class="header-actions">
         <span class="header-pill">Interview Prep</span>
@@ -1390,7 +1390,7 @@
     <section id="screen-results" class="screen">
       <!-- Print Header (visible only in PDF / Print) -->
       <div class="print-header print-only">
-        <div class="print-header-brand">⚡ QuizCraft — Results &amp; Step-by-Step Solutions</div>
+        <div class="print-header-brand">⚡ Quizzie — Results &amp; Step-by-Step Solutions</div>
         <div id="print-date-stamp" class="print-header-date"></div>
       </div>
 
@@ -1456,12 +1456,12 @@
 
   <footer class="app-footer">
     <div class="footer-credit">made with ❤️ by pranil</div>
-    <div class="footer-subtext">QuizCraft &bull; Single-page static quiz app &bull; Zero backend &bull; All data stays local</div>
+    <div class="footer-subtext">Quizzie &bull; Single-page static quiz app &bull; Zero backend &bull; All data stays local</div>
   </footer>
 
   <script>
     /**
-     * QUIZCRAFT - Single-page Quiz Web App
+     * QUIZZIE - Single-page Quiz Web App
      * Pure vanilla JavaScript with no dependencies.
      */
     (function () {
@@ -1469,14 +1469,20 @@
 
       // --- STORAGE HELPERS (Safe try/catch wrapper) ---
       const STORAGE_KEYS = {
-        LAST_JSON: 'quizcraft_last_pasted_json',
-        LAST_SCORES: 'quizcraft_last_scores'
+        LAST_JSON: 'quizzie_last_pasted_json',
+        LAST_SCORES: 'quizzie_last_scores',
+        LEGACY_JSON: 'quizcraft_last_pasted_json',
+        LEGACY_SCORES: 'quizcraft_last_scores'
       };
 
       const storage = {
         get(key) {
           try {
-            return localStorage.getItem(key);
+            const val = localStorage.getItem(key);
+            if (val !== null) return val;
+            if (key === STORAGE_KEYS.LAST_JSON) return localStorage.getItem(STORAGE_KEYS.LEGACY_JSON);
+            if (key === STORAGE_KEYS.LAST_SCORES) return localStorage.getItem(STORAGE_KEYS.LEGACY_SCORES);
+            return null;
           } catch (e) {
             console.warn('localStorage is unavailable:', e);
             return null;
@@ -1492,6 +1498,8 @@
         remove(key) {
           try {
             localStorage.removeItem(key);
+            if (key === STORAGE_KEYS.LAST_JSON) localStorage.removeItem(STORAGE_KEYS.LEGACY_JSON);
+            if (key === STORAGE_KEYS.LAST_SCORES) localStorage.removeItem(STORAGE_KEYS.LEGACY_SCORES);
           } catch (e) {
             console.warn('localStorage remove failed:', e);
           }
@@ -1500,6 +1508,8 @@
           try {
             localStorage.removeItem(STORAGE_KEYS.LAST_JSON);
             localStorage.removeItem(STORAGE_KEYS.LAST_SCORES);
+            localStorage.removeItem(STORAGE_KEYS.LEGACY_JSON);
+            localStorage.removeItem(STORAGE_KEYS.LEGACY_SCORES);
           } catch (e) {
             console.warn('localStorage clear failed:', e);
           }
@@ -2384,7 +2394,7 @@
         // Temporarily set document title for clean default PDF filename
         const originalTitle = document.title;
         const todayStr = new Date().toISOString().slice(0, 10);
-        document.title = `QuizCraft-Results-${correctCount}-of-${total}-${todayStr}`;
+        document.title = `Quizzie-Results-${correctCount}-of-${total}-${todayStr}`;
 
         // Trigger native print / Save as PDF
         window.print();
