@@ -18,7 +18,7 @@ A lightweight, distraction-free single-page quiz application designed for interv
   - **Blue Box**: Strategy and methodology (`approach`).
 - **Targeted Practice**: "Retry only the ones I got wrong" lets you drill down on mistakes until mastered.
 - **Save as PDF**: Export your full results, review questions, your selected answers, correct answers, and all step-by-step explanations directly to a clean, professionally formatted PDF.
-- **Adaptive Dark/Light Theme**: Automatically matches your system preferences with sleek styling.
+- **Modern Neobrutalism Theme**: High-contrast, tactile aesthetic with bold outlines, hard offset drop shadows, punchy modern color accents, and full light/dark mode support.
 - **Local Persistence**: Saves your last pasted questions and records your last 5 quiz scores using `localStorage`.
 
 ---
@@ -114,3 +114,7 @@ The app is completely static and pre-configured with `vercel.json` (`cleanUrls: 
 - All quizzes run 100% on the client side in your browser.
 - No question data or scores are transmitted to external servers.
 - History is saved locally in your browser's `localStorage` and can be cleared at any time with the **"Clear saved data"** button.
+
+---
+
+Made with ❤️ by Pranil
