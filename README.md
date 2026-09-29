@@ -18,7 +18,7 @@ A lightweight, distraction-free single-page quiz application designed for interv
   - **Blue Box**: Strategy and methodology (`approach`).
 - **Targeted Practice**: "Retry only the ones I got wrong" lets you drill down on mistakes until mastered.
 - **Save as PDF**: Export your full results, review questions, your selected answers, correct answers, and all step-by-step explanations directly to a clean, professionally formatted PDF.
-- **Modern Neobrutalism Theme**: High-contrast, tactile aesthetic with bold outlines, hard offset drop shadows, punchy modern color accents, and full light/dark mode support.
+- **Modern Deep Blue & Slate Theme**: Sleek, professional aesthetic crafted with rich blues and slates (`#0466c8`, `#0353a4`, `#023e7d`, `#002855`, `#001845`, `#001233`, `#33415c`, `#5c677d`, `#7d8597`, `#979dac`), with automatic dark/light mode.
 - **Local Persistence**: Saves your last pasted questions and records your last 5 quiz scores using `localStorage`.
 
 ---
