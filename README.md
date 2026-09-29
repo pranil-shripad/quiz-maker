@@ -1,29 +1,46 @@
-# Quizzie - Single-Page Quiz Web App
+# Quizzie - Single-Page AI Quiz Web App
 
-A lightweight, distraction-free single-page quiz application designed for interview preparation and study sessions. Built with plain HTML, modern CSS, and vanilla JavaScript in a single self-contained `index.html` file. Works completely offline, opens locally with a double-click, and deploys effortlessly to Vercel as a static site.
+A modern, distraction-free single-page quiz application designed for interview preparation and study sessions. Built with plain HTML, modern CSS, and vanilla JavaScript in a single self-contained `index.html` file. 
+
+Now powered by **Groq AI** to automatically generate fresh, non-repeating interview questions on any topic in seconds! Works completely offline with manual fallback, opens locally with a double-click, and deploys effortlessly to Vercel as a static site.
 
 ---
 
-## Features
+## ✨ Features
 
-- **Zero Dependencies & Single File**: Everything is bundled in `index.html` without external fonts, scripts, or build steps.
-- **Robust JSON Ingestion**: Paste interview questions generated from ChatGPT or any LLM. Automatically strips code fences (` ``` `), extracts JSON, and cleans up prefixes like `A.`, `B)`.
-- **Flexible Answer Formats**: Recognizes letters (`A`, `B`, `C`, `D`), numeric indices (`0`, `1`, `2`), or the full answer text.
-- **Active Quiz Experience**: Clean one-question-at-a-time interface with progress bar, question jump bar, easy option switching, and confirmation before submitting with unanswered questions.
-- **In-Depth Results & Explanations**:
-  - Detailed score breakdown and visual progress.
-  - Review cards showing all options with correct answer indicators.
+- **⚡ Groq AI Quiz Generator**: Enter your free Groq API key to generate interview quizzes on-demand using ultra-fast models (`Llama 3.3 70B` with instant fallback to `Llama 3.1 8B`).
+- **🛡️ Intelligent Deduplication (No-Repeat Engine)**: Remembers questions you've previously practiced on each topic and instructs the AI to generate completely new questions and angles. Tracks history in `localStorage` with an option to reset at any time.
+- **🎯 12 Curated Interview Topics + Custom Input**:
+  - Data Structures & Algorithms
+  - Python Core & Advanced
+  - JavaScript & TypeScript
+  - React & Frontend
+  - SQL & Database Design
+  - System Design & Architecture
+  - OS & Linux Internals
+  - Computer Networks
+  - Machine Learning & AI
+  - Java & Spring Boot
+  - DevOps, CI/CD & Cloud
+  - Go (Golang)
+  - *Or type any custom topic/specialization (e.g., Next.js 15, Kubernetes, Redis Caching, Pandas).*
+- **⚙️ Configurable Quiz Settings**:
+  - Question count (5 or 10 questions).
+  - Difficulty level (Junior, Mid-Level, Senior).
+- **📋 Collapsible Manual JSON Mode**: Still allows pasting custom JSON questions generated from ChatGPT or elsewhere.
+- **🎨 shadcn/ui Dark Aesthetic**: Minimalist, eye-soothing dark theme inspired by shadcn/ui (zinc dark mode) with clean 1px borders, matte `#09090b` canvas, `#fafafa` black-and-white accents, and refined typography.
+- **🧠 Rich Question Explanations**:
   - **Red Box**: Explains why your chosen option was wrong (`why_wrong`).
   - **Green Box**: Detailed step-by-step working and solution (`explanation`).
   - **Blue Box**: Strategy and methodology (`approach`).
-- **Targeted Practice**: "Retry only the ones I got wrong" lets you drill down on mistakes until mastered.
-- **Save as PDF**: Export your full results, review questions, your selected answers, correct answers, and all step-by-step explanations directly to a clean, professionally formatted PDF.
-- **shadcn/ui Dark Theme**: Minimalist, eye-soothing dark aesthetic inspired by shadcn/ui (zinc dark mode) with clean 1px borders, matte `#09090b` canvas, `#fafafa` black-and-white accents, and refined typography.
-- **Local Persistence**: Saves your last pasted questions and records your last 5 quiz scores using `localStorage`.
+- **🎯 Targeted Practice**: "Retry only the ones I got wrong" lets you drill down on mistakes until mastered.
+- **⚡ Next Quiz (New Questions)**: Generate another fresh set of non-repeating questions on the same topic directly from the results screen.
+- **📥 Save as PDF**: Export your full score, review questions, your selected answers, correct answers, and all step-by-step explanations directly to a clean, professionally formatted PDF.
+- **🔒 100% Client-Side Privacy**: Your Groq API key, seen question history, and scores remain strictly in your browser's `localStorage`. No telemetry, no backend, no middleman.
 
 ---
 
-## How to Use the App
+## 🚀 Getting Started
 
 ### 1. Opening Locally
 Simply double-click `index.html` in your file explorer / Finder to launch it directly in any modern browser (`file://`), or run a simple local web server:
@@ -37,33 +54,20 @@ npx serve .
 ```
 Then visit `http://localhost:3000`.
 
-### 2. Pasting Questions
-Generate questions in ChatGPT using the JSON schema below and paste the entire output into the app:
+### 2. Setting Up Your Free Groq API Key
+1. Get a free API key at [console.groq.com/keys](https://console.groq.com/keys).
+2. Paste it into the **Groq API Key** card at the top of the homepage and click **Save Key**.
+3. Your key is stored securely in your browser's `localStorage` and never leaves your computer.
 
-```json
-[
-  {
-    "question": "A shirt costs 500 rupees. It is sold at a 20% discount. What is the selling price?",
-    "options": ["400", "450", "480", "420"],
-    "answer": "A",
-    "explanation": "Step 1: 20% of 500 = 100.\nStep 2: 500 - 100 = 400.",
-    "approach": "For discount questions: find the discount amount, then subtract it from the price.",
-    "why_wrong": {
-      "B": "450 comes from taking 10% off instead of 20%.",
-      "C": "480 comes from taking 20 off, not 20 percent.",
-      "D": "420 comes from subtracting 80."
-    }
-  }
-]
-```
-
-- You can also click **"Load Sample"** on the setup screen to try out pre-configured interview questions immediately.
-- Toggle **"Shuffle questions"** if you want randomized question order.
-- Click **"Start Quiz"** to begin.
+### 3. Generating a Quiz
+1. Click any topic card (e.g. *Data Structures & Algorithms*, *System Design*, *Python*) or enter a custom topic.
+2. Select your desired question count (5 or 10) and difficulty level (*Junior*, *Mid-Level*, *Senior*).
+3. Click **⚡ Generate Quiz**.
+4. Quizzie prompts Groq AI, validates the structure, deduplicates against previously seen questions, and launches the quiz.
 
 ---
 
-## Deployment to Vercel
+## 🌐 Deployment to Vercel
 
 The app is completely static and pre-configured with `vercel.json` (`cleanUrls: true`). It requires no build command or output directory configuration.
 
@@ -73,7 +77,7 @@ The app is completely static and pre-configured with `vercel.json` (`cleanUrls: 
    ```bash
    git init
    git add .
-   git commit -m "Initial commit of Quiz web app"
+   git commit -m "Initial commit of Quizzie with Groq AI generator"
    ```
 2. Push your repository to your GitHub account:
    ```bash
@@ -93,27 +97,24 @@ The app is completely static and pre-configured with `vercel.json` (`cleanUrls: 
 
 ### Method 2: Deploy with Vercel CLI
 
-1. Install the Vercel CLI if you haven't already:
-   ```bash
-   npm i -g vercel
-   ```
-2. Run the deployment command in the project directory:
-   ```bash
-   vercel
-   ```
-   Follow the prompts (accept default settings for static project).
-3. To deploy to production with your custom domain or production URL:
-   ```bash
-   vercel --prod
-   ```
+```bash
+# Install CLI
+npm i -g vercel
+
+# Deploy preview
+vercel
+
+# Deploy to production
+vercel --prod
+```
 
 ---
 
-## Privacy & Offline Use
+## 🔒 Privacy & Data Retention
 
 - All quizzes run 100% on the client side in your browser.
-- No question data or scores are transmitted to external servers.
-- History is saved locally in your browser's `localStorage` and can be cleared at any time with the **"Clear saved data"** button.
+- The Groq API key is communicated directly to `api.groq.com` from your browser using fetch without any proxy or server in between.
+- History, keys, and scores can be wiped at any time with the **"Clear saved data"** button.
 
 ---
 

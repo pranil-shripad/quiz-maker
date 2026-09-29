@@ -267,6 +267,303 @@
       box-shadow: 0 0 0 1px var(--ring);
     }
 
+    /* Text Input */
+    input.input-text {
+      width: 100%;
+      height: 40px;
+      padding: 8px 14px;
+      background-color: #0c0c0e;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--foreground);
+      font-size: 0.875rem;
+      font-family: inherit;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    input.input-text:focus {
+      outline: none;
+      border-color: var(--ring);
+      box-shadow: 0 0 0 1px var(--ring);
+    }
+
+    /* Groq API Key Banner & Form */
+    .api-key-card {
+      background-color: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 16px 20px;
+      margin-bottom: 20px;
+    }
+
+    .api-key-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .api-key-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--foreground);
+    }
+
+    .api-key-status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #ef4444;
+      display: inline-block;
+    }
+
+    .api-key-status-dot.connected {
+      background-color: #22c55e;
+      box-shadow: 0 0 8px rgba(34, 197, 94, 0.5);
+    }
+
+    .api-key-desc {
+      font-size: 0.82rem;
+      color: var(--muted-foreground);
+      margin: 8px 0 12px;
+      line-height: 1.5;
+    }
+
+    .api-key-desc a {
+      color: #fafafa;
+      text-decoration: underline;
+    }
+
+    .api-key-form {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .password-input-wrapper {
+      position: relative;
+      flex: 1;
+      display: flex;
+      align-items: center;
+    }
+
+    .password-input-wrapper input {
+      padding-right: 38px;
+    }
+
+    .btn-icon {
+      position: absolute;
+      right: 10px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      color: var(--muted-foreground);
+      display: grid;
+      place-items: center;
+      padding: 4px;
+    }
+
+    .btn-icon:hover {
+      color: var(--foreground);
+    }
+
+    /* Topics Grid */
+    .topics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 10px;
+      margin-top: 8px;
+      margin-bottom: 18px;
+    }
+
+    .topic-card {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      background-color: #121215;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      color: var(--foreground);
+      font-size: 0.88rem;
+      font-weight: 500;
+      text-align: left;
+      transition: all 0.15s ease;
+      font-family: inherit;
+    }
+
+    .topic-card:hover {
+      background-color: #18181b;
+      border-color: var(--secondary-hover);
+      color: #ffffff;
+    }
+
+    .topic-card.selected {
+      background-color: #18181b;
+      border-color: #fafafa;
+      color: #ffffff;
+      box-shadow: 0 0 0 1px #fafafa;
+      font-weight: 600;
+    }
+
+    .topic-icon {
+      font-size: 1.15rem;
+      flex-shrink: 0;
+    }
+
+    .topic-name {
+      flex: 1;
+      line-height: 1.35;
+    }
+
+    /* Quiz Settings Grid */
+    .quiz-settings-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 640px) {
+      .quiz-settings-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .settings-col label {
+      margin-bottom: 8px;
+    }
+
+    .settings-col .segmented-control {
+      width: 100%;
+      display: flex;
+    }
+
+    .settings-col .segmented-btn {
+      flex: 1;
+      text-align: center;
+    }
+
+    /* Topic Meta & Deduplication Row */
+    .topic-meta-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 22px;
+      padding: 12px 16px;
+      background-color: #121215;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+    }
+
+    .dedup-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      color: var(--muted-foreground);
+    }
+
+    .btn-link {
+      background: none;
+      border: none;
+      color: #fafafa;
+      text-decoration: underline;
+      cursor: pointer;
+      font-size: 0.82rem;
+      font-family: inherit;
+      padding: 0 4px;
+    }
+
+    .btn-link:hover {
+      color: #ffffff;
+    }
+
+    /* Big Generate Button */
+    .btn-generate {
+      width: 100%;
+      font-size: 1rem;
+      font-weight: 600;
+      min-height: 48px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    /* Generating Animation Card */
+    .generating-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 20px;
+      background-color: #121215;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      margin-bottom: 18px;
+    }
+
+    .generating-spinner {
+      width: 24px;
+      height: 24px;
+      border: 2.5px solid var(--border);
+      border-top-color: #fafafa;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .generating-text {
+      flex: 1;
+    }
+
+    .generating-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #fafafa;
+      margin-bottom: 2px;
+    }
+
+    .generating-step {
+      font-size: 0.82rem;
+      color: var(--muted-foreground);
+    }
+
+    /* Collapsible Manual JSON */
+    .manual-accordion {
+      margin-top: 24px;
+      border-top: 1px solid var(--border);
+      padding-top: 14px;
+    }
+
+    .manual-accordion summary {
+      font-size: 0.82rem;
+      color: var(--muted-subtle);
+      cursor: pointer;
+      user-select: none;
+      transition: color 0.15s ease;
+    }
+
+    .manual-accordion summary:hover {
+      color: var(--muted-foreground);
+    }
+
+    .manual-content {
+      margin-top: 14px;
+    }
+
     /* Error Message Box */
     .error-box {
       display: none;
@@ -1294,13 +1591,84 @@
 
     <!-- SCREEN 1: SETUP SCREEN -->
     <section id="screen-setup" class="screen active">
-      <div class="card">
-        <h1 class="page-title">Interview Prep Quiz</h1>
-        <p class="page-subtitle">Paste your interview-prep questions from ChatGPT in JSON format below.</p>
 
-        <div class="form-group">
-          <label for="json-input">Questions JSON Array</label>
-          <textarea id="json-input" class="input-area" placeholder="[&#10;  {&#10;    &quot;question&quot;: &quot;...&quot;,&#10;    &quot;options&quot;: [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;],&#10;    &quot;answer&quot;: &quot;A&quot;,&#10;    &quot;explanation&quot;: &quot;...&quot;&#10;  }&#10;]" spellcheck="false"></textarea>
+      <!-- Groq API Key Card -->
+      <div class="api-key-card" id="api-key-container">
+        <div class="api-key-header">
+          <div class="api-key-title">
+            <span class="api-key-status-dot" id="api-key-status-dot"></span>
+            <span id="api-key-status-text">Groq API Key Required</span>
+          </div>
+          <button id="btn-toggle-key-input" class="btn btn-secondary btn-sm" type="button" style="display: none;">
+            Change Key
+          </button>
+        </div>
+
+        <div id="api-key-input-row" class="api-key-input-row">
+          <p class="api-key-desc">
+            To automatically generate non-repeating interview questions, enter your Groq API key.
+            <a href="https://console.groq.com/keys" target="_blank" rel="noopener noreferrer">Get a free Groq key here →</a>
+          </p>
+          <div class="api-key-form">
+            <div class="password-input-wrapper">
+              <input type="password" id="groq-api-key-input" class="input-text" placeholder="gsk_..." spellcheck="false" autocomplete="off" />
+              <button type="button" id="btn-toggle-key-visibility" class="btn-icon" title="Toggle visibility">👁️</button>
+            </div>
+            <button id="btn-save-api-key" class="btn btn-primary btn-sm" type="button">Save Key</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Topic Selection & Generation Card -->
+      <div class="card">
+        <h1 class="page-title">Select Interview Topic</h1>
+        <p class="page-subtitle">Choose a topic below or type your own. Quizzie uses Groq AI to generate unique interview questions with step-by-step solutions.</p>
+
+        <!-- Topic Selection Grid -->
+        <label>Popular Interview Topics</label>
+        <div class="topics-grid" id="topics-grid">
+          <!-- Populated by JavaScript -->
+        </div>
+
+        <!-- Custom Topic Input -->
+        <div class="form-group" style="margin-top: 14px; margin-bottom: 22px;">
+          <label for="custom-topic-input">Or Custom Topic / Specialization</label>
+          <input type="text" id="custom-topic-input" class="input-text" placeholder="e.g. Next.js 15, Redis Caching, Pandas & Numpy, Kubernetes, Behavioral..." />
+        </div>
+
+        <!-- Quiz Settings: Question Count & Difficulty -->
+        <div class="quiz-settings-grid">
+          <div class="settings-col">
+            <label>Question Count</label>
+            <div class="segmented-control" id="count-selector">
+              <button type="button" class="segmented-btn active" data-count="5">5 Questions</button>
+              <button type="button" class="segmented-btn" data-count="10">10 Questions</button>
+            </div>
+          </div>
+
+          <div class="settings-col">
+            <label>Difficulty Level</label>
+            <div class="segmented-control" id="difficulty-selector">
+              <button type="button" class="segmented-btn" data-diff="Junior">Junior</button>
+              <button type="button" class="segmented-btn active" data-diff="Mid-Level">Mid-Level</button>
+              <button type="button" class="segmented-btn" data-diff="Senior">Senior</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Topic Meta & Deduplication Row -->
+        <div class="topic-meta-row">
+          <div class="dedup-badge">
+            <span>🛡️</span>
+            <span id="dedup-text">No-Repeat Mode: 0 questions seen on this topic</span>
+            <button type="button" id="btn-reset-history" class="btn-link" title="Clear seen questions for this topic">Reset</button>
+          </div>
+
+          <label class="toggle-wrapper" title="Randomize question sequence">
+            <input type="checkbox" id="shuffle-toggle" class="toggle-input" checked>
+            <span class="toggle-slider"></span>
+            <span>Shuffle questions</span>
+          </label>
         </div>
 
         <!-- Error Area -->
@@ -1309,26 +1677,32 @@
           <span id="error-message"></span>
         </div>
 
-        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 20px;">
-          <label class="toggle-wrapper" title="Randomize question sequence">
-            <input type="checkbox" id="shuffle-toggle" class="toggle-input">
-            <span class="toggle-slider"></span>
-            <span>Shuffle questions</span>
-          </label>
-
-          <div class="button-group">
-            <button id="btn-load-sample" class="btn btn-secondary btn-sm" type="button">
-              <span>📋</span> Load sample
-            </button>
-            <button id="btn-clear-input" class="btn btn-secondary btn-sm" type="button">
-              <span>🗑️</span> Clear input
-            </button>
+        <!-- Generating Status Card (Visible when generating) -->
+        <div id="generating-card" class="generating-card hidden">
+          <div class="generating-spinner"></div>
+          <div class="generating-text">
+            <div class="generating-title" id="generating-title">Generating your quiz...</div>
+            <div class="generating-step" id="generating-step">Asking Groq AI (Llama 3.3)...</div>
           </div>
         </div>
 
-        <button id="btn-start-quiz" class="btn btn-primary" style="width: 100%; font-size: 1.05rem;" type="button">
-          Start Quiz
+        <!-- Generate Button -->
+        <button id="btn-generate-quiz" class="btn btn-primary btn-generate" type="button">
+          <span>⚡ Generate Quiz</span>
         </button>
+
+        <!-- Optional Collapsible Manual JSON Mode -->
+        <details class="manual-accordion" id="manual-accordion">
+          <summary>Or paste custom JSON questions manually</summary>
+          <div class="manual-content">
+            <textarea id="json-input" class="input-area" placeholder="[&#10;  {&#10;    &quot;question&quot;: &quot;...&quot;,&#10;    &quot;options&quot;: [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;],&#10;    &quot;answer&quot;: &quot;A&quot;,&#10;    &quot;explanation&quot;: &quot;...&quot;&#10;  }&#10;]" spellcheck="false"></textarea>
+            <div class="button-group" style="margin-top: 12px; justify-content: flex-end;">
+              <button id="btn-load-sample" class="btn btn-secondary btn-sm" type="button">📋 Load sample</button>
+              <button id="btn-clear-input" class="btn btn-secondary btn-sm" type="button">🗑️ Clear</button>
+              <button id="btn-start-manual" class="btn btn-secondary btn-sm" type="button">Start from JSON</button>
+            </div>
+          </div>
+        </details>
       </div>
 
       <!-- Past 5 Scores -->
@@ -1415,8 +1789,11 @@
           <button id="btn-retry-wrong" class="btn btn-secondary" type="button">
             🎯 Retry only wrong ones
           </button>
-          <button id="btn-new-quiz" class="btn btn-primary" type="button">
-            ➕ New quiz
+          <button id="btn-next-quiz" class="btn btn-primary" type="button">
+            ⚡ Next Quiz (New Questions)
+          </button>
+          <button id="btn-new-quiz" class="btn btn-secondary" type="button">
+            🏠 Choose New Topic
           </button>
         </div>
       </div>
@@ -1461,14 +1838,35 @@
 
   <script>
     /**
-     * QUIZZIE - Single-page Quiz Web App
+     * QUIZZIE - Single-page Quiz Web App with Groq AI Generator
      * Pure vanilla JavaScript with no dependencies.
      */
     (function () {
       'use strict';
 
+      // --- CONSTANTS & CURATED TOPICS ---
+      const CURATED_TOPICS = [
+        { id: 'dsa', name: 'Data Structures & Algorithms', icon: '🌳', desc: 'Arrays, Trees, Graphs, DP' },
+        { id: 'python', name: 'Python Core & Advanced', icon: '🐍', desc: 'Decorators, GIL, OOP, Generators' },
+        { id: 'javascript', name: 'JavaScript & TypeScript', icon: '⚡', desc: 'Event Loop, Closures, Promises, Types' },
+        { id: 'react', name: 'React & Frontend', icon: '⚛️', desc: 'Hooks, Virtual DOM, State, Performance' },
+        { id: 'sql', name: 'SQL & Database Design', icon: '🗄️', desc: 'Joins, Indexing, Transactions, ACID' },
+        { id: 'system_design', name: 'System Design & Arch', icon: '🏗️', desc: 'Scaling, Caching, Microservices, Sharding' },
+        { id: 'os_linux', name: 'OS & Linux Internals', icon: '🐧', desc: 'Processes, Threads, Memory, Shell' },
+        { id: 'networks', name: 'Computer Networks', icon: '🌐', desc: 'TCP/IP, HTTP/3, WebSockets, DNS' },
+        { id: 'ml_ai', name: 'Machine Learning & AI', icon: '🤖', desc: 'Supervised, Transformers, LLMs, Metrics' },
+        { id: 'java', name: 'Java & Spring Boot', icon: '☕', desc: 'JVM, Multithreading, Streams, Spring' },
+        { id: 'devops', name: 'DevOps, CI/CD & Cloud', icon: '🚀', desc: 'Docker, K8s, Terraform, AWS' },
+        { id: 'golang', name: 'Go (Golang)', icon: '🐹', desc: 'Goroutines, Channels, Interfaces, Concurrency' }
+      ];
+
       // --- STORAGE HELPERS (Safe try/catch wrapper) ---
       const STORAGE_KEYS = {
+        GROQ_API_KEY: 'quizzie_groq_api_key',
+        LAST_TOPIC: 'quizzie_last_topic',
+        LAST_COUNT: 'quizzie_last_count',
+        LAST_DIFFICULTY: 'quizzie_last_difficulty',
+        SEEN_PREFIX: 'quizzie_seen_',
         LAST_JSON: 'quizzie_last_pasted_json',
         LAST_SCORES: 'quizzie_last_scores',
         LEGACY_JSON: 'quizcraft_last_pasted_json',
@@ -1506,17 +1904,29 @@
         },
         clearAll() {
           try {
+            localStorage.removeItem(STORAGE_KEYS.GROQ_API_KEY);
+            localStorage.removeItem(STORAGE_KEYS.LAST_TOPIC);
+            localStorage.removeItem(STORAGE_KEYS.LAST_COUNT);
+            localStorage.removeItem(STORAGE_KEYS.LAST_DIFFICULTY);
             localStorage.removeItem(STORAGE_KEYS.LAST_JSON);
             localStorage.removeItem(STORAGE_KEYS.LAST_SCORES);
             localStorage.removeItem(STORAGE_KEYS.LEGACY_JSON);
             localStorage.removeItem(STORAGE_KEYS.LEGACY_SCORES);
+            const keysToRemove = [];
+            for (let i = 0; i < localStorage.length; i++) {
+              const k = localStorage.key(i);
+              if (k && (k.startsWith('quizzie_') || k.startsWith('quizcraft_'))) {
+                keysToRemove.push(k);
+              }
+            }
+            keysToRemove.forEach(k => localStorage.removeItem(k));
           } catch (e) {
             console.warn('localStorage clear failed:', e);
           }
         }
       };
 
-      // --- SAMPLE DATA (2-question example) ---
+      // --- SAMPLE DATA (Fallback manual mode) ---
       const SAMPLE_DATA = [
         {
           "question": "A shirt costs 500 rupees. It is sold at a 20% discount. What is the selling price?",
@@ -1555,6 +1965,10 @@
       let userAnswers = {};          // questionIndex -> selectedOptionIndex (or undefined)
       let currentQuestionIndex = 0;  // 0-based
       let resultsFilter = 'all';     // 'all' | 'wrong'
+      let activeTopic = 'Data Structures & Algorithms';
+      let activeCount = 5;
+      let activeDifficulty = 'Mid-Level';
+      let isGenerating = false;
 
       // --- DOM ELEMENTS ---
       const screens = {
@@ -1563,13 +1977,35 @@
         results: document.getElementById('screen-results')
       };
 
-      const jsonInput = document.getElementById('json-input');
+      // Groq Key Elements
+      const apiKeyStatusDot = document.getElementById('api-key-status-dot');
+      const apiKeyStatusText = document.getElementById('api-key-status-text');
+      const btnToggleKeyInput = document.getElementById('btn-toggle-key-input');
+      const apiKeyInputRow = document.getElementById('api-key-input-row');
+      const groqApiKeyInput = document.getElementById('groq-api-key-input');
+      const btnToggleKeyVisibility = document.getElementById('btn-toggle-key-visibility');
+      const btnSaveApiKey = document.getElementById('btn-save-api-key');
+
+      // Topics & Settings Elements
+      const topicsGrid = document.getElementById('topics-grid');
+      const customTopicInput = document.getElementById('custom-topic-input');
+      const countSelector = document.getElementById('count-selector');
+      const difficultySelector = document.getElementById('difficulty-selector');
+      const dedupText = document.getElementById('dedup-text');
+      const btnResetHistory = document.getElementById('btn-reset-history');
       const shuffleToggle = document.getElementById('shuffle-toggle');
       const parseErrorBox = document.getElementById('parse-error');
       const errorMessage = document.getElementById('error-message');
-      const btnStartQuiz = document.getElementById('btn-start-quiz');
+      const generatingCard = document.getElementById('generating-card');
+      const generatingTitle = document.getElementById('generating-title');
+      const generatingStep = document.getElementById('generating-step');
+      const btnGenerateQuiz = document.getElementById('btn-generate-quiz');
+
+      // Manual fallback elements
+      const jsonInput = document.getElementById('json-input');
       const btnLoadSample = document.getElementById('btn-load-sample');
       const btnClearInput = document.getElementById('btn-clear-input');
+      const btnStartManual = document.getElementById('btn-start-manual');
       const btnClearStorage = document.getElementById('btn-clear-storage');
       const scoresContainer = document.getElementById('scores-container');
 
@@ -1597,6 +2033,7 @@
       const btnSavePdf = document.getElementById('btn-save-pdf');
       const btnRetrySame = document.getElementById('btn-retry-same');
       const btnRetryWrong = document.getElementById('btn-retry-wrong');
+      const btnNextQuiz = document.getElementById('btn-next-quiz');
       const btnNewQuiz = document.getElementById('btn-new-quiz');
 
       // Modal elements
@@ -1670,11 +2107,217 @@
         if (e.target === confirmModal) closeModal();
       });
 
+      // --- GROQ API KEY MANAGEMENT ---
+      function getApiKey() {
+        return (storage.get(STORAGE_KEYS.GROQ_API_KEY) || '').trim();
+      }
+
+      function updateApiKeyUI() {
+        const key = getApiKey();
+        if (key) {
+          apiKeyStatusDot.classList.add('connected');
+          const masked = key.length > 10 ? `${key.slice(0, 4)}••••••••${key.slice(-4)}` : '••••••••';
+          apiKeyStatusText.textContent = `Groq API Key Active (${masked})`;
+          apiKeyInputRow.classList.add('collapsed');
+          btnToggleKeyInput.style.display = 'inline-flex';
+          btnToggleKeyInput.textContent = 'Change Key';
+          groqApiKeyInput.value = key;
+        } else {
+          apiKeyStatusDot.classList.remove('connected');
+          apiKeyStatusText.textContent = 'Groq API Key Required';
+          apiKeyInputRow.classList.remove('collapsed');
+          btnToggleKeyInput.style.display = 'none';
+          groqApiKeyInput.value = '';
+        }
+      }
+
+      btnSaveApiKey.addEventListener('click', () => {
+        const val = groqApiKeyInput.value.trim();
+        if (!val) {
+          showError('Please enter your Groq API key before saving.');
+          groqApiKeyInput.focus();
+          return;
+        }
+        storage.set(STORAGE_KEYS.GROQ_API_KEY, val);
+        updateApiKeyUI();
+        clearError();
+      });
+
+      btnToggleKeyInput.addEventListener('click', () => {
+        const isCollapsed = apiKeyInputRow.classList.contains('collapsed');
+        if (isCollapsed) {
+          apiKeyInputRow.classList.remove('collapsed');
+          btnToggleKeyInput.textContent = 'Hide';
+          groqApiKeyInput.focus();
+        } else {
+          apiKeyInputRow.classList.add('collapsed');
+          btnToggleKeyInput.textContent = 'Change Key';
+        }
+      });
+
+      btnToggleKeyVisibility.addEventListener('click', () => {
+        if (groqApiKeyInput.type === 'password') {
+          groqApiKeyInput.type = 'text';
+          btnToggleKeyVisibility.textContent = '🔒';
+        } else {
+          groqApiKeyInput.type = 'password';
+          btnToggleKeyVisibility.textContent = '👁️';
+        }
+      });
+
+      // --- TOPIC & DEDUPLICATION LOGIC ---
+      function getTopicSlug(topic) {
+        return (topic || 'general')
+          .trim()
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, '_')
+          .slice(0, 50);
+      }
+
+      function normalizeQuestionStem(text) {
+        return (text || '')
+          .toLowerCase()
+          .replace(/[^a-z0-9]/g, ' ')
+          .replace(/\s+/g, ' ')
+          .trim()
+          .slice(0, 120);
+      }
+
+      function getSeenQuestions(topic) {
+        const slug = getTopicSlug(topic);
+        const raw = storage.get(STORAGE_KEYS.SEEN_PREFIX + slug);
+        try {
+          const list = raw ? JSON.parse(raw) : [];
+          return Array.isArray(list) ? list : [];
+        } catch (e) {
+          return [];
+        }
+      }
+
+      function addSeenQuestions(topic, questions) {
+        const slug = getTopicSlug(topic);
+        const existing = getSeenQuestions(topic);
+        const newStems = questions
+          .map(q => normalizeQuestionStem(q.question))
+          .filter(stem => stem.length > 5);
+
+        // Prepend new and dedup, store up to 200 stems
+        const combined = Array.from(new Set([...newStems, ...existing])).slice(0, 200);
+        storage.set(STORAGE_KEYS.SEEN_PREFIX + slug, JSON.stringify(combined));
+        updateDedupUI();
+      }
+
+      function clearSeenQuestions(topic) {
+        const slug = getTopicSlug(topic);
+        storage.remove(STORAGE_KEYS.SEEN_PREFIX + slug);
+        updateDedupUI();
+      }
+
+      function getCurrentTopic() {
+        const custom = (customTopicInput.value || '').trim();
+        return custom || activeTopic || 'Data Structures & Algorithms';
+      }
+
+      function updateDedupUI() {
+        const current = getCurrentTopic();
+        const seen = getSeenQuestions(current);
+        if (seen.length === 0) {
+          dedupText.textContent = `No-Repeat Active • 0 questions seen so far`;
+        } else {
+          dedupText.textContent = `No-Repeat Active • ${seen.length} question${seen.length === 1 ? '' : 's'} seen so far`;
+        }
+      }
+
+      btnResetHistory.addEventListener('click', () => {
+        const topic = getCurrentTopic();
+        openModal({
+          title: 'Reset Question History?',
+          message: `This will clear the record of seen questions for "${topic}". Fresh quizzes on this topic may include previous concepts again.`,
+          confirmText: 'Reset History',
+          cancelText: 'Cancel',
+          onConfirm: () => {
+            clearSeenQuestions(topic);
+          }
+        });
+      });
+
+      // --- CURATED TOPICS RENDERING ---
+      function renderTopicsGrid() {
+        topicsGrid.innerHTML = '';
+        CURATED_TOPICS.forEach(t => {
+          const isSelected = !customTopicInput.value.trim() && activeTopic === t.name;
+          const card = createEl('div', {
+            className: `topic-card ${isSelected ? 'active' : ''}`,
+            role: 'button',
+            tabIndex: '0',
+            title: `Select topic: ${t.name}`
+          }, [
+            createEl('div', { className: 'topic-icon', textContent: t.icon }),
+            createEl('div', { className: 'topic-name', textContent: t.name }),
+            createEl('div', { className: 'topic-desc', textContent: t.desc })
+          ]);
+
+          const selectThisTopic = () => {
+            activeTopic = t.name;
+            customTopicInput.value = '';
+            storage.set(STORAGE_KEYS.LAST_TOPIC, activeTopic);
+            document.querySelectorAll('.topic-card').forEach(el => el.classList.remove('active'));
+            card.classList.add('active');
+            updateDedupUI();
+            clearError();
+          };
+
+          card.addEventListener('click', selectThisTopic);
+          card.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              selectThisTopic();
+            }
+          });
+
+          topicsGrid.appendChild(card);
+        });
+      }
+
+      customTopicInput.addEventListener('input', () => {
+        const val = customTopicInput.value.trim();
+        if (val) {
+          document.querySelectorAll('.topic-card').forEach(el => el.classList.remove('active'));
+          activeTopic = val;
+        } else {
+          document.querySelectorAll('.topic-card').forEach(el => {
+            if (el.querySelector('.topic-name')?.textContent === activeTopic) {
+              el.classList.add('active');
+            }
+          });
+        }
+        storage.set(STORAGE_KEYS.LAST_TOPIC, getCurrentTopic());
+        updateDedupUI();
+        clearError();
+      });
+
+      // Question count & difficulty selectors
+      countSelector.querySelectorAll('.segmented-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          countSelector.querySelectorAll('.segmented-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          activeCount = parseInt(btn.getAttribute('data-count'), 10) || 5;
+          storage.set(STORAGE_KEYS.LAST_COUNT, String(activeCount));
+        });
+      });
+
+      difficultySelector.querySelectorAll('.segmented-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          difficultySelector.querySelectorAll('.segmented-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          activeDifficulty = btn.getAttribute('data-diff') || 'Mid-Level';
+          storage.set(STORAGE_KEYS.LAST_DIFFICULTY, activeDifficulty);
+        });
+      });
+
       // --- ROBUST PARSER & VALIDATOR ---
       function stripOptionPrefix(str) {
         if (typeof str !== 'string') return String(str);
-        // Strips "A. ", "B) ", "1. ", "(A) ", "A - ", "a: "
-        // Keeps option intact if it's just "A" or "400" or "O(1)"
         return str.replace(/^(\([A-Za-z0-9]+\)|[A-Za-z0-9]+\s*[\.\)\:\-])\s*/, '').trim();
       }
 
@@ -1684,13 +2327,10 @@
         }
 
         let cleaned = text.trim();
-
-        // 1. Strip markdown code fences (e.g. ```json ... ``` or ``` ... ```)
         cleaned = cleaned.replace(/^```[a-zA-Z]*\n?/m, '');
         cleaned = cleaned.replace(/\n?```$/m, '');
         cleaned = cleaned.trim();
 
-        // 2. Extract everything from first '[' to last ']'
         const firstBracket = cleaned.indexOf('[');
         const lastBracket = cleaned.lastIndexOf(']');
 
@@ -1715,7 +2355,6 @@
           throw new Error('The pasted array is empty. Please provide at least one question.');
         }
 
-        // 3. Validate each question object
         const validatedQuestions = parsedArray.map((item, index) => {
           const qNum = index + 1;
 
@@ -1723,13 +2362,11 @@
             throw new Error(`Question ${qNum}: item must be a JSON object.`);
           }
 
-          // Question stem
           if (typeof item.question !== 'string' || !item.question.trim()) {
             throw new Error(`Question ${qNum}: missing or empty "question" text.`);
           }
           const questionText = item.question.trim();
 
-          // Options
           if (!Array.isArray(item.options) || item.options.length < 2) {
             throw new Error(`Question ${qNum}: "options" must be an array with at least 2 options.`);
           }
@@ -1737,14 +2374,12 @@
           const rawOptions = item.options.map(opt => String(opt || '').trim());
           const cleanedOptions = rawOptions.map(opt => stripOptionPrefix(opt));
 
-          // Check if any option is empty
           for (let oi = 0; oi < cleanedOptions.length; oi++) {
             if (!cleanedOptions[oi]) {
               throw new Error(`Question ${qNum}: option ${String.fromCharCode(65 + oi)} is empty.`);
             }
           }
 
-          // Answer resolution
           if (item.answer === undefined || item.answer === null) {
             throw new Error(`Question ${qNum}: missing "answer" field.`);
           }
@@ -1752,24 +2387,20 @@
           const ansRaw = item.answer;
           let matchedIndex = -1;
 
-          // Check 1: 0-based number
           if (typeof ansRaw === 'number' && Number.isInteger(ansRaw)) {
             if (ansRaw >= 0 && ansRaw < cleanedOptions.length) {
               matchedIndex = ansRaw;
             }
           }
 
-          // Check 2: Single Letter (A, B, C, D...) or Letter prefix like "A.", "(B)"
           if (matchedIndex === -1 && typeof ansRaw === 'string') {
             const trimmedAns = ansRaw.trim();
-            // Match pure letter "A", "B", etc.
             if (/^[A-Za-z]$/.test(trimmedAns)) {
               const letterIdx = trimmedAns.toUpperCase().charCodeAt(0) - 65;
               if (letterIdx >= 0 && letterIdx < cleanedOptions.length) {
                 matchedIndex = letterIdx;
               }
             } else {
-              // Match "(A)" or "A."
               const letterMatch = trimmedAns.match(/^\(?([A-Za-z])[\.\)\:\-]?$/);
               if (letterMatch) {
                 const letterIdx = letterMatch[1].toUpperCase().charCodeAt(0) - 65;
@@ -1780,7 +2411,6 @@
             }
           }
 
-          // Check 3: Numeric string "0", "1", "2"
           if (matchedIndex === -1 && typeof ansRaw === 'string' && /^\d+$/.test(ansRaw.trim())) {
             const num = parseInt(ansRaw.trim(), 10);
             if (num >= 0 && num < cleanedOptions.length) {
@@ -1788,7 +2418,6 @@
             }
           }
 
-          // Check 4: Answer string matches option text directly (cleaned or raw)
           if (matchedIndex === -1) {
             const cleanedAns = stripOptionPrefix(String(ansRaw).trim().toLowerCase());
             matchedIndex = cleanedOptions.findIndex(opt => opt.toLowerCase() === cleanedAns);
@@ -1801,7 +2430,6 @@
             throw new Error(`Question ${qNum}: answer "${ansRaw}" doesn't match any option.`);
           }
 
-          // Normalize why_wrong keys (map to uppercase letters 'A', 'B', etc.)
           const normalizedWhyWrong = {};
           if (item.why_wrong && typeof item.why_wrong === 'object' && !Array.isArray(item.why_wrong)) {
             for (const [key, reason] of Object.entries(item.why_wrong)) {
@@ -1815,7 +2443,6 @@
                   normalizedWhyWrong[String.fromCharCode(65 + num)] = reason;
                 }
               } else {
-                // If keyed by option text
                 const textIdx = cleanedOptions.findIndex(opt => opt.toLowerCase() === key.trim().toLowerCase());
                 if (textIdx !== -1) {
                   normalizedWhyWrong[String.fromCharCode(65 + textIdx)] = reason;
@@ -1849,6 +2476,207 @@
         }
         return copy;
       }
+
+      // --- GROQ API INTEGRATION ---
+      async function callGroqChatCompletions(apiKey, messages, model = 'llama-3.3-70b-versatile') {
+        const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${apiKey}`
+          },
+          body: JSON.stringify({
+            model: model,
+            messages: messages,
+            temperature: 0.7,
+            max_tokens: 4096,
+            response_format: { type: 'json_object' }
+          })
+        });
+
+        if (!response.ok) {
+          let errorDetails = '';
+          try {
+            const errJson = await response.json();
+            errorDetails = errJson.error?.message || response.statusText;
+          } catch (e) {
+            errorDetails = response.statusText;
+          }
+
+          if (response.status === 401) {
+            throw new Error('Invalid Groq API Key. Please verify your key at https://console.groq.com/keys and re-enter it.');
+          }
+          if (response.status === 429) {
+            if (model.includes('70b')) {
+              console.warn('Groq 70b rate-limited; attempting fallback to llama-3.1-8b-instant...');
+              generatingStep.textContent = 'Rate limit on 70b; falling back to Llama 3.1 8B instant...';
+              return callGroqChatCompletions(apiKey, messages, 'llama-3.1-8b-instant');
+            }
+            throw new Error('Groq rate limit reached (429). Please wait a moment and try again, or check your rate limits.');
+          }
+
+          throw new Error(`Groq API Error (${response.status}): ${errorDetails}`);
+        }
+
+        const data = await response.json();
+        const content = data.choices?.[0]?.message?.content;
+        if (!content) {
+          throw new Error('No content returned by Groq AI. Please try again.');
+        }
+
+        return content;
+      }
+
+      async function generateQuizFromGroq() {
+        if (isGenerating) return;
+
+        const apiKey = getApiKey();
+        if (!apiKey) {
+          apiKeyInputRow.classList.remove('collapsed');
+          groqApiKeyInput.focus();
+          showError('Please enter and save your Groq API key above to generate quizzes.');
+          return;
+        }
+
+        const topic = getCurrentTopic();
+        if (!topic) {
+          showError('Please select or enter an interview topic.');
+          return;
+        }
+
+        clearError();
+        isGenerating = true;
+        btnGenerateQuiz.disabled = true;
+        btnGenerateQuiz.classList.add('loading');
+        btnGenerateQuiz.querySelector('span').textContent = 'Generating Quiz...';
+        generatingCard.classList.remove('hidden');
+        generatingTitle.textContent = `Generating ${activeCount} ${activeDifficulty} Questions...`;
+        generatingStep.textContent = `Topic: "${topic}" • Querying Groq AI...`;
+
+        // Gather seen questions for deduplication
+        const seenStems = getSeenQuestions(topic);
+        const sampleSeen = seenStems.slice(0, 25);
+        let seenPromptSnippet = '';
+        if (sampleSeen.length > 0) {
+          seenPromptSnippet = `\nCRITICAL DEDUPLICATION RULE:\nThe user has ALREADY answered the following questions on this topic. You MUST NOT repeat, rephrase, or ask similar variations of any of these questions:\n` +
+            sampleSeen.map((stem, i) => `${i + 1}. ${stem}`).join('\n') +
+            `\nEnsure all ${activeCount} generated questions are 100% brand new and cover different subtopics or problem angles.`;
+        }
+
+        const systemPrompt = `You are a world-class senior technical interviewer and educator.
+Your task is to create ${activeCount} distinct, high-quality, practical multiple-choice interview questions for the topic "${topic}" at the ${activeDifficulty} level.
+
+OUTPUT FORMAT REQUIREMENTS:
+Return ONLY a valid JSON object matching this exact structure:
+{
+  "questions": [
+    {
+      "question": "Clear, precise interview question scenario or technical problem",
+      "options": [
+        "First option text (no 'A.' prefix)",
+        "Second option text (no 'B.' prefix)",
+        "Third option text (no 'C.' prefix)",
+        "Fourth option text (no 'D.' prefix)"
+      ],
+      "answer": "A",
+      "explanation": "Comprehensive step-by-step explanation of why this answer is correct and the underlying mechanism",
+      "approach": "Strategic advice or rule of thumb on how to approach this type of question in an interview",
+      "why_wrong": {
+        "B": "Specific explanation of why option B is incorrect or what misconception it represents",
+        "C": "Specific explanation of why option C is incorrect",
+        "D": "Specific explanation of why option D is incorrect"
+      }
+    }
+  ]
+}
+
+STRICT CONSTRAINTS:
+1. Exactly 4 options per question.
+2. DO NOT include prefixes like "A.", "B.", "1.", or "(A)" in the options array strings.
+3. The "answer" must be a single letter ("A", "B", "C", or "D") matching the correct option.
+4. "why_wrong" must contain keys for the remaining 3 incorrect letters.
+5. All questions must be technically sound, rigorous, and relevant to modern industry practices.
+${seenPromptSnippet}`;
+
+        const userPrompt = `Generate ${activeCount} ${activeDifficulty}-level interview questions on "${topic}". Ensure none of the questions repeat previous topics.`;
+
+        try {
+          const rawContent = await callGroqChatCompletions(apiKey, [
+            { role: 'system', content: systemPrompt },
+            { role: 'user', content: userPrompt }
+          ]);
+
+          generatingStep.textContent = 'Validating question structures & checking for repeats...';
+
+          let cleaned = rawContent.trim();
+          cleaned = cleaned.replace(/^```[a-zA-Z]*\n?/m, '').replace(/\n?```$/m, '').trim();
+
+          let parsedObj;
+          try {
+            parsedObj = JSON.parse(cleaned);
+          } catch (e) {
+            const firstBrace = cleaned.indexOf('{');
+            const lastBrace = cleaned.lastIndexOf('}');
+            if (firstBrace !== -1 && lastBrace > firstBrace) {
+              parsedObj = JSON.parse(cleaned.substring(firstBrace, lastBrace + 1));
+            } else {
+              throw new Error('Groq AI returned non-JSON text. Please try again.');
+            }
+          }
+
+          let questionsList = null;
+          if (Array.isArray(parsedObj)) {
+            questionsList = parsedObj;
+          } else if (parsedObj && typeof parsedObj === 'object') {
+            if (Array.isArray(parsedObj.questions)) {
+              questionsList = parsedObj.questions;
+            } else if (Array.isArray(parsedObj.quiz)) {
+              questionsList = parsedObj.quiz;
+            } else {
+              const arrProp = Object.keys(parsedObj).find(k => Array.isArray(parsedObj[k]));
+              if (arrProp) questionsList = parsedObj[arrProp];
+            }
+          }
+
+          if (!questionsList || questionsList.length === 0) {
+            throw new Error('No questions found in AI response. Please try again.');
+          }
+
+          // Validate questions using our validator
+          const validated = parseAndValidateQuestions(JSON.stringify(questionsList));
+
+          // Client-side Deduplication filter
+          const seenSet = new Set(seenStems);
+          const nonDuplicateQuestions = validated.filter(q => {
+            const stem = normalizeQuestionStem(q.question);
+            return !seenSet.has(stem);
+          });
+
+          const finalQuestions = nonDuplicateQuestions.length >= 2 ? nonDuplicateQuestions : validated;
+
+          // Record new seen questions
+          addSeenQuestions(topic, finalQuestions);
+
+          // Update rawLoadedQuestions and jsonInput for manual fallback
+          rawLoadedQuestions = finalQuestions;
+          jsonInput.value = JSON.stringify(finalQuestions, null, 2);
+
+          // Start Quiz!
+          startQuiz(finalQuestions, shuffleToggle.checked);
+
+        } catch (err) {
+          console.error('Quiz generation error:', err);
+          showError(err.message || 'Failed to generate quiz. Please check your API key or network connection.');
+        } finally {
+          isGenerating = false;
+          btnGenerateQuiz.disabled = false;
+          btnGenerateQuiz.classList.remove('loading');
+          btnGenerateQuiz.querySelector('span').textContent = '⚡ Generate Quiz';
+          generatingCard.classList.add('hidden');
+        }
+      }
+
+      btnGenerateQuiz.addEventListener('click', generateQuizFromGroq);
 
       // --- RENDER PAST SCORES ---
       function renderScoresList() {
@@ -1913,7 +2741,6 @@
           scores = [];
         }
 
-        // Add to front, keep last 5
         scores.unshift(newEntry);
         scores = scores.slice(0, 5);
 
@@ -1925,6 +2752,7 @@
       function showError(msg) {
         errorMessage.textContent = msg;
         parseErrorBox.classList.add('visible');
+        parseErrorBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
 
       function clearError() {
@@ -1944,27 +2772,7 @@
         storage.remove(STORAGE_KEYS.LAST_JSON);
       });
 
-      btnClearStorage.addEventListener('click', () => {
-        openModal({
-          title: 'Clear Saved Data?',
-          message: 'This will erase your last pasted questions and quiz score history from your browser.',
-          confirmText: 'Clear All',
-          cancelText: 'Cancel',
-          onConfirm: () => {
-            storage.clearAll();
-            jsonInput.value = '';
-            clearError();
-            renderScoresList();
-          }
-        });
-      });
-
-      jsonInput.addEventListener('input', () => {
-        clearError();
-        storage.set(STORAGE_KEYS.LAST_JSON, jsonInput.value);
-      });
-
-      btnStartQuiz.addEventListener('click', () => {
+      btnStartManual.addEventListener('click', () => {
         clearError();
         try {
           const validated = parseAndValidateQuestions(jsonInput.value);
@@ -1973,6 +2781,28 @@
         } catch (err) {
           showError(err.message);
         }
+      });
+
+      btnClearStorage.addEventListener('click', () => {
+        openModal({
+          title: 'Clear All App Data?',
+          message: 'This will erase your saved Groq API key, quiz score history, topic preferences, and seen questions history from this browser.',
+          confirmText: 'Clear Everything',
+          cancelText: 'Cancel',
+          onConfirm: () => {
+            storage.clearAll();
+            jsonInput.value = '';
+            clearError();
+            updateApiKeyUI();
+            updateDedupUI();
+            renderScoresList();
+          }
+        });
+      });
+
+      jsonInput.addEventListener('input', () => {
+        clearError();
+        storage.set(STORAGE_KEYS.LAST_JSON, jsonInput.value);
       });
 
       // --- QUIZ FLOW ---
@@ -1995,17 +2825,13 @@
         questionIndicator.textContent = `Question ${currentNum} of ${total}`;
         answeredIndicator.textContent = `${answeredCount} of ${total} answered`;
 
-        // Progress bar percentage
         const progressPct = ((currentQuestionIndex + 1) / total) * 100;
         progressBarFill.style.width = `${progressPct}%`;
 
-        // Jump pills
         renderJumpPills();
 
-        // Prev button state
         btnPrevQuestion.disabled = currentQuestionIndex === 0;
 
-        // Next / Submit button state
         if (currentQuestionIndex === total - 1) {
           btnNextQuestion.textContent = 'Submit Quiz';
           btnNextQuestion.className = 'btn btn-primary';
@@ -2105,7 +2931,6 @@
           updateQuizIndicators();
           window.scrollTo({ top: 0, behavior: 'smooth' });
         } else {
-          // Last question -> Submit
           handleSubmitQuiz();
         }
       });
@@ -2154,10 +2979,8 @@
         const total = activeQuestions.length;
         const percentage = Math.round((correctCount / total) * 100);
 
-        // Save score to localStorage
         saveScore(correctCount, total);
 
-        // Populate Score Hero
         resultsScoreFraction.textContent = `${correctCount} / ${total}`;
         resultsScorePercentage.textContent = `${percentage}%`;
 
@@ -2175,15 +2998,12 @@
           resultsSubhead.textContent = 'Carefully read the explanations and step-by-step solutions to master these topics.';
         }
 
-        // Setup filter counts
         const wrongOrUnansweredCount = total - correctCount;
         countAll.textContent = total;
         countWrong.textContent = wrongOrUnansweredCount;
 
-        // Reset filter
         setResultsFilter('all');
 
-        // Configure Retry Wrong button state
         btnRetryWrong.disabled = wrongOrUnansweredCount === 0;
 
         showScreen('results');
@@ -2225,7 +3045,6 @@
         }
 
         displayedQuestions.forEach((question) => {
-          // Find original index in activeQuestions
           const origIdx = activeQuestions.indexOf(question);
           const chosenIdx = userAnswers[origIdx];
           const isAnswered = chosenIdx !== undefined;
@@ -2234,7 +3053,6 @@
 
           const card = createEl('div', { className: 'review-card' });
 
-          // Header
           const header = createEl('div', { className: 'review-header' });
           const qNum = createEl('div', { className: 'review-qnum', textContent: `Question ${origIdx + 1} of ${activeQuestions.length}` });
 
@@ -2257,11 +3075,9 @@
           header.appendChild(badge);
           card.appendChild(header);
 
-          // Question stem
           const stem = createEl('div', { className: 'review-stem', textContent: question.question });
           card.appendChild(stem);
 
-          // Options list
           const optionsList = createEl('div', { className: 'review-options' });
           question.options.forEach((optText, optIdx) => {
             const letter = String.fromCharCode(65 + optIdx);
@@ -2281,7 +3097,6 @@
             left.appendChild(textSpan);
             row.appendChild(left);
 
-            // Tags
             if (isThisCorrect && isThisChosen) {
               const tag = createEl('span', { className: 'review-tag correct-tag', textContent: '✓ Your Correct Choice' });
               row.appendChild(tag);
@@ -2297,10 +3112,8 @@
           });
           card.appendChild(optionsList);
 
-          // Colored Explanation Boxes
           const explanationBoxes = createEl('div', { className: 'explanation-boxes' });
 
-          // 0. Unanswered Notice (if not answered)
           if (!isAnswered) {
             const unansweredBox = createEl('div', { className: 'info-box info-box-unanswered' });
             const boxTitle = createEl('div', { className: 'info-box-title', textContent: '⚠ Question was skipped' });
@@ -2310,7 +3123,6 @@
             explanationBoxes.appendChild(unansweredBox);
           }
 
-          // 1. RED Box: "Why <my option> is wrong" (shown only if answered incorrectly)
           if (isAnswered && !isCorrect) {
             const wrongExplanation = question.why_wrong && question.why_wrong[userChosenLetter];
             if (wrongExplanation) {
@@ -2329,7 +3141,6 @@
             }
           }
 
-          // 2. GREEN Box: "Why <correct option> is correct" (uses explanation)
           if (question.explanation && question.explanation.trim()) {
             const greenBox = createEl('div', { className: 'info-box info-box-correct' });
             const boxTitle = createEl('div', {
@@ -2345,7 +3156,6 @@
             explanationBoxes.appendChild(greenBox);
           }
 
-          // 3. BLUE Box: "How to approach this type of question" (uses approach)
           if (question.approach && question.approach.trim()) {
             const blueBox = createEl('div', { className: 'info-box info-box-approach' });
             const boxTitle = createEl('div', {
@@ -2377,7 +3187,6 @@
         });
         const percentage = Math.round((correctCount / total) * 100);
 
-        // Update print date/summary badge
         const printDateEl = document.getElementById('print-date-stamp');
         if (printDateEl) {
           const now = new Date();
@@ -2391,22 +3200,18 @@
           printDateEl.textContent = `Score: ${correctCount}/${total} (${percentage}%) • Generated on ${dateStr}`;
         }
 
-        // Temporarily set document title for clean default PDF filename
         const originalTitle = document.title;
         const todayStr = new Date().toISOString().slice(0, 10);
         document.title = `Quizzie-Results-${correctCount}-of-${total}-${todayStr}`;
 
-        // Trigger native print / Save as PDF
         window.print();
 
-        // Restore original document title
         setTimeout(() => {
           document.title = originalTitle;
         }, 1500);
       });
 
       btnRetrySame.addEventListener('click', () => {
-        // Retry the exact questions of this quiz
         startQuiz(activeQuestions, false);
       });
 
@@ -2420,23 +3225,76 @@
         startQuiz(wrongQuestions, false);
       });
 
-      btnNewQuiz.addEventListener('click', () => {
-        jsonInput.value = '';
-        storage.remove(STORAGE_KEYS.LAST_JSON);
-        clearError();
+      btnNextQuiz.addEventListener('click', () => {
         showScreen('setup');
-        jsonInput.focus();
+        generateQuizFromGroq();
+      });
+
+      btnNewQuiz.addEventListener('click', () => {
+        showScreen('setup');
+        const topicsGridEl = document.getElementById('topics-grid');
+        if (topicsGridEl) {
+          topicsGridEl.scrollIntoView({ behavior: 'smooth' });
+        }
       });
 
       // --- INITIALIZATION ---
       function init() {
-        // 1. Restore last pasted questions if any
+        // 1. Restore API Key
+        updateApiKeyUI();
+
+        // 2. Restore Question Count
+        const savedCount = storage.get(STORAGE_KEYS.LAST_COUNT);
+        if (savedCount) {
+          const parsed = parseInt(savedCount, 10);
+          if (parsed === 5 || parsed === 10) {
+            activeCount = parsed;
+            countSelector.querySelectorAll('.segmented-btn').forEach(b => {
+              if (parseInt(b.getAttribute('data-count'), 10) === activeCount) {
+                b.classList.add('active');
+              } else {
+                b.classList.remove('active');
+              }
+            });
+          }
+        }
+
+        // 3. Restore Difficulty
+        const savedDiff = storage.get(STORAGE_KEYS.LAST_DIFFICULTY);
+        if (savedDiff) {
+          activeDifficulty = savedDiff;
+          difficultySelector.querySelectorAll('.segmented-btn').forEach(b => {
+            if (b.getAttribute('data-diff') === activeDifficulty) {
+              b.classList.add('active');
+            } else {
+              b.classList.remove('active');
+            }
+          });
+        }
+
+        // 4. Restore Last Topic
+        const savedTopic = storage.get(STORAGE_KEYS.LAST_TOPIC);
+        if (savedTopic) {
+          const isCurated = CURATED_TOPICS.some(t => t.name === savedTopic);
+          if (isCurated) {
+            activeTopic = savedTopic;
+          } else {
+            activeTopic = savedTopic;
+            customTopicInput.value = savedTopic;
+          }
+        }
+
+        // 5. Render Curated Topics Grid & Dedup Status
+        renderTopicsGrid();
+        updateDedupUI();
+
+        // 6. Restore manual JSON if any
         const savedJson = storage.get(STORAGE_KEYS.LAST_JSON);
         if (savedJson) {
           jsonInput.value = savedJson;
         }
 
-        // 2. Render past scores
+        // 7. Render past scores
         renderScoresList();
       }
 
