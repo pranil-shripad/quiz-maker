@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quizzie — Interview Prep Quiz & Review</title>
-  <meta name="description" content="A self-contained single-page quiz web app for interview preparation. Paste questions from ChatGPT, take the quiz, and review step-by-step solutions.">
-  
+  <meta name="description"
+    content="A self-contained single-page quiz web app for interview preparation. Paste questions from ChatGPT, take the quiz, and review step-by-step solutions.">
+
   <!-- Open Graph / Meta -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Quizzie — Interview Prep Quiz & Review">
-  <meta property="og:description" content="Paste JSON quiz questions from ChatGPT, test yourself, and analyze step-by-step explanations and mistake breakdowns.">
+  <meta property="og:description"
+    content="Paste JSON quiz questions from ChatGPT, test yourself, and analyze step-by-step explanations and mistake breakdowns.">
 
   <!-- Favicon via inline SVG (Minimalist dark style) -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='4' y='4' width='92' height='92' rx='20' fill='%2309090b' stroke='%2327272a' stroke-width='4'/%3E%3Cpath d='M52 24 L34 52 L48 52 L42 76 L68 46 L54 46 Z' fill='%23fafafa'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='4' y='4' width='92' height='92' rx='20' fill='%2309090b' stroke='%2327272a' stroke-width='4'/%3E%3Cpath d='M52 24 L34 52 L48 52 L42 76 L68 46 L54 46 Z' fill='%23fafafa'/%3E%3C/svg%3E">
 
   <style>
     /* ==========================================================================
@@ -23,39 +27,55 @@
       --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 
       /* shadcn/ui zinc dark color tokens */
-      --background: #09090b;       /* Zinc 950 - deep matte, eye-soothing canvas */
-      --foreground: #fafafa;       /* Zinc 50 - clean crisp white */
-      
-      --card: #09090b;             /* Pure card background */
-      --card-muted: #121215;       /* Subtle inner container surface */
+      --background: #09090b;
+      /* Zinc 950 - deep matte, eye-soothing canvas */
+      --foreground: #fafafa;
+      /* Zinc 50 - clean crisp white */
+
+      --card: #09090b;
+      /* Pure card background */
+      --card-muted: #121215;
+      /* Subtle inner container surface */
       --card-foreground: #fafafa;
-      
+
       --popover: #09090b;
       --popover-foreground: #fafafa;
-      
+
       /* Black & White Accent */
-      --primary: #fafafa;          /* Bright white primary CTA */
-      --primary-foreground: #09090b;/* Dark ink text on white button */
-      --primary-hover: #e4e4e7;    /* Zinc 200 */
-      --primary-active: #d4d4d8;   /* Zinc 300 */
-      
-      --secondary: #27272a;        /* Zinc 800 - secondary surface */
+      --primary: #fafafa;
+      /* Bright white primary CTA */
+      --primary-foreground: #09090b;
+      /* Dark ink text on white button */
+      --primary-hover: #e4e4e7;
+      /* Zinc 200 */
+      --primary-active: #d4d4d8;
+      /* Zinc 300 */
+
+      --secondary: #27272a;
+      /* Zinc 800 - secondary surface */
       --secondary-foreground: #fafafa;
-      --secondary-hover: #3f3f46;  /* Zinc 700 */
-      
-      --muted: #18181b;            /* Zinc 900 */
-      --muted-foreground: #a1a1aa; /* Zinc 400 - gentle on the eyes */
-      --muted-subtle: #71717a;     /* Zinc 500 */
-      
+      --secondary-hover: #3f3f46;
+      /* Zinc 700 */
+
+      --muted: #18181b;
+      /* Zinc 900 */
+      --muted-foreground: #a1a1aa;
+      /* Zinc 400 - gentle on the eyes */
+      --muted-subtle: #71717a;
+      /* Zinc 500 */
+
       --accent: #27272a;
       --accent-foreground: #fafafa;
-      
+
       /* Subtle 1px borders */
-      --border: #27272a;           /* Zinc 800 */
+      --border: #27272a;
+      /* Zinc 800 */
       --border-subtle: #1f1f23;
-      --border-active: #52525b;    /* Zinc 600 */
+      --border-active: #52525b;
+      /* Zinc 600 */
       --input: #27272a;
-      --ring: #d4d4d8;             /* Focus ring */
+      --ring: #d4d4d8;
+      /* Focus ring */
 
       /* Subtle eye-soothing status indicators */
       --success-bg: rgba(34, 197, 94, 0.1);
@@ -86,7 +106,9 @@
     }
 
     /* CSS Reset */
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -186,8 +208,15 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(4px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(4px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* shadcn Card Component */
@@ -204,13 +233,17 @@
       .card {
         padding: 20px 16px;
       }
+
       .container {
         padding: 16px 14px 40px;
       }
     }
 
     /* Typography */
-    h1, h2, h3, h4 {
+    h1,
+    h2,
+    h3,
+    h4 {
       color: var(--foreground);
       line-height: 1.3;
       font-weight: 600;
@@ -453,7 +486,9 @@
     }
 
     @keyframes spin {
-      to { transform: rotate(360deg); }
+      to {
+        transform: rotate(360deg);
+      }
     }
 
     .generating-text {
@@ -649,17 +684,17 @@
       transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.15s ease;
     }
 
-    .toggle-input:checked + .toggle-slider {
+    .toggle-input:checked+.toggle-slider {
       background-color: #ffffff;
       border-color: #ffffff;
     }
 
-    .toggle-input:checked + .toggle-slider::after {
+    .toggle-input:checked+.toggle-slider::after {
       transform: translateX(20px);
       background-color: #09090b;
     }
 
-    .toggle-input:focus-visible + .toggle-slider {
+    .toggle-input:focus-visible+.toggle-slider {
       box-shadow: 0 0 0 2px var(--ring);
     }
 
@@ -1503,6 +1538,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <!-- Top App Navigation -->
@@ -1526,19 +1562,15 @@
       <!-- Main Topic Selection & Generation Card -->
       <div class="card">
         <h1 class="page-title">Generate AI Interview Quiz</h1>
-        <p class="page-subtitle">Enter any topic and choose your difficulty level. Quizzie uses Groq AI to generate unique, non-repeating interview questions with step-by-step solutions.</p>
+        <p class="page-subtitle">Enter any topic and choose your difficulty level. Quizzie uses Groq AI to generate
+          unique, non-repeating interview questions with step-by-step solutions.</p>
 
         <!-- Topic Name Input Box -->
         <div class="form-group" style="margin-bottom: 20px;">
           <label for="topic-input">Quiz Topic</label>
-          <input
-            type="text"
-            id="topic-input"
-            class="input-text topic-main-input"
-            placeholder="e.g. Data Structures & Algorithms, React, System Design, Python, Docker..."
-            autocomplete="off"
-            autofocus
-          />
+          <input type="text" id="topic-input" class="input-text topic-main-input"
+            placeholder="e.g. Data Structures & Algorithms, React, System Design, Python, Docker..." autocomplete="off"
+            autofocus />
           <div class="topic-suggestions">
             <span class="topic-suggestions-label">Popular topics:</span>
             <div class="suggestion-chips" id="suggestion-chips">
@@ -1572,7 +1604,8 @@
           <div class="dedup-badge">
             <span>🛡️</span>
             <span id="dedup-text">No-Repeat Mode: 0 questions seen on this topic</span>
-            <button type="button" id="btn-reset-history" class="btn-link" title="Clear seen questions for this topic">Reset</button>
+            <button type="button" id="btn-reset-history" class="btn-link"
+              title="Clear seen questions for this topic">Reset</button>
           </div>
 
           <label class="toggle-wrapper" title="Randomize question sequence">
@@ -1593,7 +1626,7 @@
           <div class="generating-spinner"></div>
           <div class="generating-text">
             <div class="generating-title" id="generating-title">Generating your quiz...</div>
-            <div class="generating-step" id="generating-step">Asking Groq AI (Llama 3.3)...</div>
+            <div class="generating-step" id="generating-step">Asking Groq AI (ChatGPT)...</div>
           </div>
         </div>
 
@@ -1606,7 +1639,9 @@
         <details class="manual-accordion" id="manual-accordion">
           <summary>Or paste custom JSON questions manually</summary>
           <div class="manual-content">
-            <textarea id="json-input" class="input-area" placeholder="[&#10;  {&#10;    &quot;question&quot;: &quot;...&quot;,&#10;    &quot;options&quot;: [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;],&#10;    &quot;answer&quot;: &quot;A&quot;,&#10;    &quot;explanation&quot;: &quot;...&quot;&#10;  }&#10;]" spellcheck="false"></textarea>
+            <textarea id="json-input" class="input-area"
+              placeholder="[&#10;  {&#10;    &quot;question&quot;: &quot;...&quot;,&#10;    &quot;options&quot;: [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;],&#10;    &quot;answer&quot;: &quot;A&quot;,&#10;    &quot;explanation&quot;: &quot;...&quot;&#10;  }&#10;]"
+              spellcheck="false"></textarea>
             <div class="button-group" style="margin-top: 12px; justify-content: flex-end;">
               <button id="btn-load-sample" class="btn btn-secondary btn-sm" type="button">📋 Load sample</button>
               <button id="btn-clear-input" class="btn btn-secondary btn-sm" type="button">🗑️ Clear</button>
@@ -1687,11 +1722,13 @@
         </div>
         <div class="results-hero-text">
           <h2 id="results-headline" class="result-headline">Quiz Completed!</h2>
-          <p id="results-subhead" class="result-subhead">Review your answers and detailed step-by-step explanations below.</p>
+          <p id="results-subhead" class="result-subhead">Review your answers and detailed step-by-step explanations
+            below.</p>
         </div>
 
         <div class="results-actions">
-          <button id="btn-save-pdf" class="btn btn-secondary" type="button" title="Save or export these results as a PDF document">
+          <button id="btn-save-pdf" class="btn btn-secondary" type="button"
+            title="Save or export these results as a PDF document">
             📥 Save as PDF
           </button>
           <button id="btn-retry-same" class="btn btn-secondary" type="button">
@@ -1744,7 +1781,8 @@
 
   <footer class="app-footer">
     <div class="footer-credit">made with ❤️ by pranil</div>
-    <div class="footer-subtext">Quizzie &bull; Single-page static quiz app &bull; Zero backend &bull; All data stays local</div>
+    <div class="footer-subtext">Quizzie &bull; Single-page static quiz app &bull; Zero backend &bull; All data stays
+      local</div>
   </footer>
 
   <script>
@@ -1758,7 +1796,8 @@
       // =========================================================================
       // 🔑 GROQ API KEY CONFIGURATION
       // Replace the placeholder below with your Groq API key (e.g., "gsk_...").
-      // All quizzes generated by this app will automatically use this key.
+      // Quizzie uses this key to generate all quiz questions automatically.
+      // Alternatively, set via: localStorage.setItem('quizzie_groq_api_key', 'gsk_...')
       // =========================================================================
       const GROQ_API_KEY = "YOUR_GROQ_API_KEY_HERE";
 
@@ -2336,7 +2375,7 @@
       }
 
       // --- GROQ API INTEGRATION ---
-      async function callGroqChatCompletions(apiKey, messages, model = 'llama-3.3-70b-versatile') {
+      async function callGroqChatCompletions(apiKey, messages, model = 'openai/gpt-oss-120b') {
         const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
           method: 'POST',
           headers: {
@@ -2365,10 +2404,10 @@
             throw new Error('Invalid Groq API Key. Please verify your key at https://console.groq.com/keys and re-enter it.');
           }
           if (response.status === 429) {
-            if (model.includes('70b')) {
-              console.warn('Groq 70b rate-limited; attempting fallback to llama-3.1-8b-instant...');
-              generatingStep.textContent = 'Rate limit on 70b; falling back to Llama 3.1 8B instant...';
-              return callGroqChatCompletions(apiKey, messages, 'llama-3.1-8b-instant');
+            if (model.includes('120b')) {
+              console.warn('Groq 120b rate-limited; attempting fallback to openai/gpt-oss-20b...');
+              generatingStep.textContent = 'Rate limit on 120B; falling back to 20B...';
+              return callGroqChatCompletions(apiKey, messages, 'openai/gpt-oss-20b');
             }
             throw new Error('Groq rate limit reached (429). Please wait a moment and try again, or check your rate limits.');
           }
@@ -3095,6 +3134,16 @@ ${seenPromptSnippet}`;
 
       // --- INITIALIZATION ---
       function init() {
+        // Optional: Save key via URL parameter once (e.g., ?groq_key=gsk_...)
+        try {
+          const params = new URLSearchParams(window.location.search);
+          const keyParam = params.get('groq_key');
+          if (keyParam && keyParam.startsWith('gsk_')) {
+            storage.set(STORAGE_KEYS.GROQ_API_KEY, keyParam.trim());
+            window.history.replaceState({}, '', window.location.pathname);
+          }
+        } catch (e) {}
+
         // 1. Restore Question Count
         const savedCount = storage.get(STORAGE_KEYS.LAST_COUNT);
         if (savedCount) {
@@ -3150,4 +3199,5 @@ ${seenPromptSnippet}`;
     })();
   </script>
 </body>
+
 </html>
