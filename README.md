@@ -29,19 +29,34 @@ Powered by **Groq AI** to automatically generate fresh, non-repeating interview 
 
 ---
 
-## 🚀 Setting Up Your Groq API Key
+## 🚀 Configuring Your Groq API Key
 
-To set your Groq API key:
+### Option A: In Vercel (Recommended for Deployed App)
+Keep your API key 100% private and protected from public view using Vercel Environment Variables:
 
-1. Open `index.html` in your code editor.
-2. Near the top of the `<script>` section (around line 1762), find the placeholder:
+1. Go to your [Vercel Dashboard](https://vercel.com) and open your **`quiz-maker`** project.
+2. Click **Settings** in the top navigation bar.
+3. In the left menu, click **Environment Variables**.
+4. Add a new variable:
+   - **Key**: `GROQ_API_KEY`
+   - **Value**: Your Groq API key (starts with `gsk_...`)
+   - **Environments**: Select *Production*, *Preview*, and *Development*.
+5. Click **Save**.
+6. Go to **Deployments** -> Click the `...` menu on your latest deployment -> Click **Redeploy** (or push any new git commit).
+
+> Quizzie uses the secure backend route `/api/generate.js` to call Groq on Vercel without ever exposing your API key to visitors or browser network tabs!
+
+---
+
+### Option B: For Local Testing (`file://` or offline)
+1. Open `index.html` in your editor.
+2. Near the top of the `<script>` section (line 1802), replace `"YOUR_GROQ_API_KEY_HERE"` with your Groq API key:
    ```javascript
-   const GROQ_API_KEY = "YOUR_GROQ_API_KEY_HERE";
+   const GROQ_API_KEY = "gsk_...";
    ```
-3. Replace `"YOUR_GROQ_API_KEY_HERE"` with your Groq API key (e.g. `"gsk_..."`).
-4. Save the file! Now all visitors can generate quizzes without needing to enter an API key themselves.
+3. Or open `index.html?groq_key=gsk_...` in your browser once — it will automatically save the key to `localStorage` and scrub the URL.
 
-*(Get a free Groq API key at [console.groq.com/keys](https://console.groq.com/keys) if you don't have one).*
+*(Get a free Groq API key at [console.groq.com/keys](https://console.groq.com/keys)).*
 
 ---
 
