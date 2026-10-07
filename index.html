@@ -287,138 +287,69 @@
       box-shadow: 0 0 0 1px var(--ring);
     }
 
-    /* Groq API Key Banner & Form */
-    .api-key-card {
-      background-color: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 16px 20px;
-      margin-bottom: 20px;
-    }
-
-    .api-key-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    .api-key-title {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: var(--foreground);
-    }
-
-    .api-key-status-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background-color: #ef4444;
-      display: inline-block;
-    }
-
-    .api-key-status-dot.connected {
-      background-color: #22c55e;
-      box-shadow: 0 0 8px rgba(34, 197, 94, 0.5);
-    }
-
-    .api-key-desc {
-      font-size: 0.82rem;
-      color: var(--muted-foreground);
-      margin: 8px 0 12px;
-      line-height: 1.5;
-    }
-
-    .api-key-desc a {
-      color: #fafafa;
-      text-decoration: underline;
-    }
-
-    .api-key-form {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .password-input-wrapper {
-      position: relative;
-      flex: 1;
-      display: flex;
-      align-items: center;
-    }
-
-    .password-input-wrapper input {
-      padding-right: 38px;
-    }
-
-    .btn-icon {
-      position: absolute;
-      right: 10px;
-      background: none;
-      border: none;
-      cursor: pointer;
+    /* Topic Input & Quick Suggestion Chips */
+    .topic-main-input {
       font-size: 0.95rem;
-      color: var(--muted-foreground);
-      display: grid;
-      place-items: center;
-      padding: 4px;
-    }
-
-    .btn-icon:hover {
-      color: var(--foreground);
-    }
-
-    /* Topics Grid */
-    .topics-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 10px;
-      margin-top: 8px;
-      margin-bottom: 18px;
-    }
-
-    .topic-card {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 12px 14px;
-      background-color: #121215;
+      height: 46px;
+      padding: 10px 16px;
+      background-color: #0c0c0e;
       border: 1px solid var(--border);
       border-radius: var(--radius-sm);
-      cursor: pointer;
       color: var(--foreground);
-      font-size: 0.88rem;
-      font-weight: 500;
-      text-align: left;
-      transition: all 0.15s ease;
       font-family: inherit;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
     }
 
-    .topic-card:hover {
-      background-color: #18181b;
-      border-color: var(--secondary-hover);
-      color: #ffffff;
-    }
-
-    .topic-card.selected {
-      background-color: #18181b;
+    .topic-main-input:focus {
+      outline: none;
       border-color: #fafafa;
-      color: #ffffff;
       box-shadow: 0 0 0 1px #fafafa;
+    }
+
+    .topic-suggestions {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .topic-suggestions-label {
+      font-size: 0.78rem;
+      color: var(--muted-subtle);
+      font-weight: 500;
+    }
+
+    .suggestion-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .suggestion-chip {
+      background-color: #121215;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-full);
+      padding: 4px 12px;
+      font-size: 0.78rem;
+      color: var(--muted-foreground);
+      cursor: pointer;
+      user-select: none;
+      font-family: inherit;
+      transition: all 0.15s ease;
+    }
+
+    .suggestion-chip:hover {
+      background-color: #18181b;
+      color: #fafafa;
+      border-color: #3f3f46;
+    }
+
+    .suggestion-chip.active {
+      background-color: #27272a;
+      color: #ffffff;
+      border-color: #71717a;
       font-weight: 600;
-    }
-
-    .topic-icon {
-      font-size: 1.15rem;
-      flex-shrink: 0;
-    }
-
-    .topic-name {
-      flex: 1;
-      line-height: 1.35;
     }
 
     /* Quiz Settings Grid */
@@ -1592,66 +1523,46 @@
     <!-- SCREEN 1: SETUP SCREEN -->
     <section id="screen-setup" class="screen active">
 
-      <!-- Groq API Key Card -->
-      <div class="api-key-card" id="api-key-container">
-        <div class="api-key-header">
-          <div class="api-key-title">
-            <span class="api-key-status-dot" id="api-key-status-dot"></span>
-            <span id="api-key-status-text">Groq API Key Required</span>
-          </div>
-          <button id="btn-toggle-key-input" class="btn btn-secondary btn-sm" type="button" style="display: none;">
-            Change Key
-          </button>
-        </div>
-
-        <div id="api-key-input-row" class="api-key-input-row">
-          <p class="api-key-desc">
-            To automatically generate non-repeating interview questions, enter your Groq API key.
-            <a href="https://console.groq.com/keys" target="_blank" rel="noopener noreferrer">Get a free Groq key here →</a>
-          </p>
-          <div class="api-key-form">
-            <div class="password-input-wrapper">
-              <input type="password" id="groq-api-key-input" class="input-text" placeholder="gsk_..." spellcheck="false" autocomplete="off" />
-              <button type="button" id="btn-toggle-key-visibility" class="btn-icon" title="Toggle visibility">👁️</button>
-            </div>
-            <button id="btn-save-api-key" class="btn btn-primary btn-sm" type="button">Save Key</button>
-          </div>
-        </div>
-      </div>
-
       <!-- Main Topic Selection & Generation Card -->
       <div class="card">
-        <h1 class="page-title">Select Interview Topic</h1>
-        <p class="page-subtitle">Choose a topic below or type your own. Quizzie uses Groq AI to generate unique interview questions with step-by-step solutions.</p>
+        <h1 class="page-title">Generate AI Interview Quiz</h1>
+        <p class="page-subtitle">Enter any topic and choose your difficulty level. Quizzie uses Groq AI to generate unique, non-repeating interview questions with step-by-step solutions.</p>
 
-        <!-- Topic Selection Grid -->
-        <label>Popular Interview Topics</label>
-        <div class="topics-grid" id="topics-grid">
-          <!-- Populated by JavaScript -->
+        <!-- Topic Name Input Box -->
+        <div class="form-group" style="margin-bottom: 20px;">
+          <label for="topic-input">Quiz Topic</label>
+          <input
+            type="text"
+            id="topic-input"
+            class="input-text topic-main-input"
+            placeholder="e.g. Data Structures & Algorithms, React, System Design, Python, Docker..."
+            autocomplete="off"
+            autofocus
+          />
+          <div class="topic-suggestions">
+            <span class="topic-suggestions-label">Popular topics:</span>
+            <div class="suggestion-chips" id="suggestion-chips">
+              <!-- Populated by JavaScript -->
+            </div>
+          </div>
         </div>
 
-        <!-- Custom Topic Input -->
-        <div class="form-group" style="margin-top: 14px; margin-bottom: 22px;">
-          <label for="custom-topic-input">Or Custom Topic / Specialization</label>
-          <input type="text" id="custom-topic-input" class="input-text" placeholder="e.g. Next.js 15, Redis Caching, Pandas & Numpy, Kubernetes, Behavioral..." />
-        </div>
-
-        <!-- Quiz Settings: Question Count & Difficulty -->
+        <!-- Quiz Settings: Difficulty Level & Question Count -->
         <div class="quiz-settings-grid">
+          <div class="settings-col">
+            <label>Difficulty Level</label>
+            <div class="segmented-control" id="difficulty-selector">
+              <button type="button" class="segmented-btn" data-diff="Easy">Easy</button>
+              <button type="button" class="segmented-btn active" data-diff="Medium">Medium</button>
+              <button type="button" class="segmented-btn" data-diff="Hard">Hard</button>
+            </div>
+          </div>
+
           <div class="settings-col">
             <label>Question Count</label>
             <div class="segmented-control" id="count-selector">
               <button type="button" class="segmented-btn active" data-count="5">5 Questions</button>
               <button type="button" class="segmented-btn" data-count="10">10 Questions</button>
-            </div>
-          </div>
-
-          <div class="settings-col">
-            <label>Difficulty Level</label>
-            <div class="segmented-control" id="difficulty-selector">
-              <button type="button" class="segmented-btn" data-diff="Junior">Junior</button>
-              <button type="button" class="segmented-btn active" data-diff="Mid-Level">Mid-Level</button>
-              <button type="button" class="segmented-btn" data-diff="Senior">Senior</button>
             </div>
           </div>
         </div>
@@ -1844,20 +1755,25 @@
     (function () {
       'use strict';
 
-      // --- CONSTANTS & CURATED TOPICS ---
-      const CURATED_TOPICS = [
-        { id: 'dsa', name: 'Data Structures & Algorithms', icon: '🌳', desc: 'Arrays, Trees, Graphs, DP' },
-        { id: 'python', name: 'Python Core & Advanced', icon: '🐍', desc: 'Decorators, GIL, OOP, Generators' },
-        { id: 'javascript', name: 'JavaScript & TypeScript', icon: '⚡', desc: 'Event Loop, Closures, Promises, Types' },
-        { id: 'react', name: 'React & Frontend', icon: '⚛️', desc: 'Hooks, Virtual DOM, State, Performance' },
-        { id: 'sql', name: 'SQL & Database Design', icon: '🗄️', desc: 'Joins, Indexing, Transactions, ACID' },
-        { id: 'system_design', name: 'System Design & Arch', icon: '🏗️', desc: 'Scaling, Caching, Microservices, Sharding' },
-        { id: 'os_linux', name: 'OS & Linux Internals', icon: '🐧', desc: 'Processes, Threads, Memory, Shell' },
-        { id: 'networks', name: 'Computer Networks', icon: '🌐', desc: 'TCP/IP, HTTP/3, WebSockets, DNS' },
-        { id: 'ml_ai', name: 'Machine Learning & AI', icon: '🤖', desc: 'Supervised, Transformers, LLMs, Metrics' },
-        { id: 'java', name: 'Java & Spring Boot', icon: '☕', desc: 'JVM, Multithreading, Streams, Spring' },
-        { id: 'devops', name: 'DevOps, CI/CD & Cloud', icon: '🚀', desc: 'Docker, K8s, Terraform, AWS' },
-        { id: 'golang', name: 'Go (Golang)', icon: '🐹', desc: 'Goroutines, Channels, Interfaces, Concurrency' }
+      // =========================================================================
+      // 🔑 GROQ API KEY CONFIGURATION
+      // Replace the placeholder below with your Groq API key (e.g., "gsk_...").
+      // All quizzes generated by this app will automatically use this key.
+      // =========================================================================
+      const GROQ_API_KEY = "YOUR_GROQ_API_KEY_HERE";
+
+      // Popular topic suggestion chips
+      const POPULAR_TOPICS = [
+        'Data Structures & Algorithms',
+        'Python',
+        'JavaScript & TypeScript',
+        'React',
+        'SQL & Databases',
+        'System Design',
+        'Operating Systems',
+        'Computer Networks',
+        'Machine Learning',
+        'DevOps & Docker'
       ];
 
       // --- STORAGE HELPERS (Safe try/catch wrapper) ---
@@ -1965,9 +1881,8 @@
       let userAnswers = {};          // questionIndex -> selectedOptionIndex (or undefined)
       let currentQuestionIndex = 0;  // 0-based
       let resultsFilter = 'all';     // 'all' | 'wrong'
-      let activeTopic = 'Data Structures & Algorithms';
       let activeCount = 5;
-      let activeDifficulty = 'Mid-Level';
+      let activeDifficulty = 'Medium';
       let isGenerating = false;
 
       // --- DOM ELEMENTS ---
@@ -1977,18 +1892,9 @@
         results: document.getElementById('screen-results')
       };
 
-      // Groq Key Elements
-      const apiKeyStatusDot = document.getElementById('api-key-status-dot');
-      const apiKeyStatusText = document.getElementById('api-key-status-text');
-      const btnToggleKeyInput = document.getElementById('btn-toggle-key-input');
-      const apiKeyInputRow = document.getElementById('api-key-input-row');
-      const groqApiKeyInput = document.getElementById('groq-api-key-input');
-      const btnToggleKeyVisibility = document.getElementById('btn-toggle-key-visibility');
-      const btnSaveApiKey = document.getElementById('btn-save-api-key');
-
-      // Topics & Settings Elements
-      const topicsGrid = document.getElementById('topics-grid');
-      const customTopicInput = document.getElementById('custom-topic-input');
+      // Topic & Settings Elements
+      const topicInput = document.getElementById('topic-input');
+      const suggestionChips = document.getElementById('suggestion-chips');
       const countSelector = document.getElementById('count-selector');
       const difficultySelector = document.getElementById('difficulty-selector');
       const dedupText = document.getElementById('dedup-text');
@@ -2107,65 +2013,20 @@
         if (e.target === confirmModal) closeModal();
       });
 
-      // --- GROQ API KEY MANAGEMENT ---
+      // --- GROQ API KEY HELPER ---
       function getApiKey() {
+        if (typeof GROQ_API_KEY === 'string' && GROQ_API_KEY !== 'YOUR_GROQ_API_KEY_HERE' && GROQ_API_KEY.trim()) {
+          return GROQ_API_KEY.trim();
+        }
+        // Fallback to localStorage if set
         return (storage.get(STORAGE_KEYS.GROQ_API_KEY) || '').trim();
       }
 
-      function updateApiKeyUI() {
-        const key = getApiKey();
-        if (key) {
-          apiKeyStatusDot.classList.add('connected');
-          const masked = key.length > 10 ? `${key.slice(0, 4)}••••••••${key.slice(-4)}` : '••••••••';
-          apiKeyStatusText.textContent = `Groq API Key Active (${masked})`;
-          apiKeyInputRow.classList.add('collapsed');
-          btnToggleKeyInput.style.display = 'inline-flex';
-          btnToggleKeyInput.textContent = 'Change Key';
-          groqApiKeyInput.value = key;
-        } else {
-          apiKeyStatusDot.classList.remove('connected');
-          apiKeyStatusText.textContent = 'Groq API Key Required';
-          apiKeyInputRow.classList.remove('collapsed');
-          btnToggleKeyInput.style.display = 'none';
-          groqApiKeyInput.value = '';
-        }
+      // --- TOPIC & DEDUPLICATION LOGIC ---
+      function getCurrentTopic() {
+        return (topicInput.value || '').trim();
       }
 
-      btnSaveApiKey.addEventListener('click', () => {
-        const val = groqApiKeyInput.value.trim();
-        if (!val) {
-          showError('Please enter your Groq API key before saving.');
-          groqApiKeyInput.focus();
-          return;
-        }
-        storage.set(STORAGE_KEYS.GROQ_API_KEY, val);
-        updateApiKeyUI();
-        clearError();
-      });
-
-      btnToggleKeyInput.addEventListener('click', () => {
-        const isCollapsed = apiKeyInputRow.classList.contains('collapsed');
-        if (isCollapsed) {
-          apiKeyInputRow.classList.remove('collapsed');
-          btnToggleKeyInput.textContent = 'Hide';
-          groqApiKeyInput.focus();
-        } else {
-          apiKeyInputRow.classList.add('collapsed');
-          btnToggleKeyInput.textContent = 'Change Key';
-        }
-      });
-
-      btnToggleKeyVisibility.addEventListener('click', () => {
-        if (groqApiKeyInput.type === 'password') {
-          groqApiKeyInput.type = 'text';
-          btnToggleKeyVisibility.textContent = '🔒';
-        } else {
-          groqApiKeyInput.type = 'password';
-          btnToggleKeyVisibility.textContent = '👁️';
-        }
-      });
-
-      // --- TOPIC & DEDUPLICATION LOGIC ---
       function getTopicSlug(topic) {
         return (topic || 'general')
           .trim()
@@ -2213,13 +2074,12 @@
         updateDedupUI();
       }
 
-      function getCurrentTopic() {
-        const custom = (customTopicInput.value || '').trim();
-        return custom || activeTopic || 'Data Structures & Algorithms';
-      }
-
       function updateDedupUI() {
         const current = getCurrentTopic();
+        if (!current) {
+          dedupText.textContent = 'No-Repeat Active • Type a topic above';
+          return;
+        }
         const seen = getSeenQuestions(current);
         if (seen.length === 0) {
           dedupText.textContent = `No-Repeat Active • 0 questions seen so far`;
@@ -2230,6 +2090,7 @@
 
       btnResetHistory.addEventListener('click', () => {
         const topic = getCurrentTopic();
+        if (!topic) return;
         openModal({
           title: 'Reset Question History?',
           message: `This will clear the record of seen questions for "${topic}". Fresh quizzes on this topic may include previous concepts again.`,
@@ -2241,59 +2102,56 @@
         });
       });
 
-      // --- CURATED TOPICS RENDERING ---
-      function renderTopicsGrid() {
-        topicsGrid.innerHTML = '';
-        CURATED_TOPICS.forEach(t => {
-          const isSelected = !customTopicInput.value.trim() && activeTopic === t.name;
-          const card = createEl('div', {
-            className: `topic-card ${isSelected ? 'active' : ''}`,
-            role: 'button',
-            tabIndex: '0',
-            title: `Select topic: ${t.name}`
-          }, [
-            createEl('div', { className: 'topic-icon', textContent: t.icon }),
-            createEl('div', { className: 'topic-name', textContent: t.name }),
-            createEl('div', { className: 'topic-desc', textContent: t.desc })
-          ]);
-
-          const selectThisTopic = () => {
-            activeTopic = t.name;
-            customTopicInput.value = '';
-            storage.set(STORAGE_KEYS.LAST_TOPIC, activeTopic);
-            document.querySelectorAll('.topic-card').forEach(el => el.classList.remove('active'));
-            card.classList.add('active');
-            updateDedupUI();
-            clearError();
-          };
-
-          card.addEventListener('click', selectThisTopic);
-          card.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-              e.preventDefault();
-              selectThisTopic();
-            }
-          });
-
-          topicsGrid.appendChild(card);
+      // --- SUGGESTION CHIPS ---
+      function updateChipStates() {
+        if (!suggestionChips) return;
+        const current = getCurrentTopic().toLowerCase();
+        suggestionChips.querySelectorAll('.suggestion-chip').forEach(chip => {
+          if (chip.textContent.trim().toLowerCase() === current) {
+            chip.classList.add('active');
+          } else {
+            chip.classList.remove('active');
+          }
         });
       }
 
-      customTopicInput.addEventListener('input', () => {
-        const val = customTopicInput.value.trim();
-        if (val) {
-          document.querySelectorAll('.topic-card').forEach(el => el.classList.remove('active'));
-          activeTopic = val;
-        } else {
-          document.querySelectorAll('.topic-card').forEach(el => {
-            if (el.querySelector('.topic-name')?.textContent === activeTopic) {
-              el.classList.add('active');
-            }
+      function renderSuggestionChips() {
+        if (!suggestionChips) return;
+        suggestionChips.innerHTML = '';
+        const current = getCurrentTopic().toLowerCase();
+        POPULAR_TOPICS.forEach(topic => {
+          const isMatch = current === topic.toLowerCase();
+          const chip = createEl('button', {
+            className: `suggestion-chip ${isMatch ? 'active' : ''}`,
+            type: 'button',
+            textContent: topic
           });
-        }
+
+          chip.addEventListener('click', () => {
+            topicInput.value = topic;
+            storage.set(STORAGE_KEYS.LAST_TOPIC, topic);
+            updateChipStates();
+            updateDedupUI();
+            clearError();
+            topicInput.focus();
+          });
+
+          suggestionChips.appendChild(chip);
+        });
+      }
+
+      topicInput.addEventListener('input', () => {
         storage.set(STORAGE_KEYS.LAST_TOPIC, getCurrentTopic());
+        updateChipStates();
         updateDedupUI();
         clearError();
+      });
+
+      topicInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          generateQuizFromGroq();
+        }
       });
 
       // Question count & difficulty selectors
@@ -2310,7 +2168,7 @@
         btn.addEventListener('click', () => {
           difficultySelector.querySelectorAll('.segmented-btn').forEach(b => b.classList.remove('active'));
           btn.classList.add('active');
-          activeDifficulty = btn.getAttribute('data-diff') || 'Mid-Level';
+          activeDifficulty = btn.getAttribute('data-diff') || 'Medium';
           storage.set(STORAGE_KEYS.LAST_DIFFICULTY, activeDifficulty);
         });
       });
@@ -2532,15 +2390,14 @@
 
         const apiKey = getApiKey();
         if (!apiKey) {
-          apiKeyInputRow.classList.remove('collapsed');
-          groqApiKeyInput.focus();
-          showError('Please enter and save your Groq API key above to generate quizzes.');
+          showError('Groq API Key placeholder detected in index.html.\nPlease open index.html, find GROQ_API_KEY near the top of the <script> section, and replace "YOUR_GROQ_API_KEY_HERE" with your Groq API key.');
           return;
         }
 
         const topic = getCurrentTopic();
         if (!topic) {
-          showError('Please select or enter an interview topic.');
+          showError('Please enter a quiz topic in the text box above (or click one of the popular topics).');
+          topicInput.focus();
           return;
         }
 
@@ -2563,8 +2420,8 @@
             `\nEnsure all ${activeCount} generated questions are 100% brand new and cover different subtopics or problem angles.`;
         }
 
-        const systemPrompt = `You are a world-class senior technical interviewer and educator.
-Your task is to create ${activeCount} distinct, high-quality, practical multiple-choice interview questions for the topic "${topic}" at the ${activeDifficulty} level.
+        const systemPrompt = `You are a world-class technical interviewer and educator.
+Your task is to create ${activeCount} distinct, high-quality, practical multiple-choice interview questions for the topic "${topic}" at the "${activeDifficulty}" difficulty level.
 
 OUTPUT FORMAT REQUIREMENTS:
 Return ONLY a valid JSON object matching this exact structure:
@@ -2786,14 +2643,13 @@ ${seenPromptSnippet}`;
       btnClearStorage.addEventListener('click', () => {
         openModal({
           title: 'Clear All App Data?',
-          message: 'This will erase your saved Groq API key, quiz score history, topic preferences, and seen questions history from this browser.',
+          message: 'This will erase your saved quiz scores, topic preferences, and seen questions history from this browser.',
           confirmText: 'Clear Everything',
           cancelText: 'Cancel',
           onConfirm: () => {
             storage.clearAll();
             jsonInput.value = '';
             clearError();
-            updateApiKeyUI();
             updateDedupUI();
             renderScoresList();
           }
@@ -3232,18 +3088,14 @@ ${seenPromptSnippet}`;
 
       btnNewQuiz.addEventListener('click', () => {
         showScreen('setup');
-        const topicsGridEl = document.getElementById('topics-grid');
-        if (topicsGridEl) {
-          topicsGridEl.scrollIntoView({ behavior: 'smooth' });
-        }
+        topicInput.focus();
+        topicInput.select();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       });
 
       // --- INITIALIZATION ---
       function init() {
-        // 1. Restore API Key
-        updateApiKeyUI();
-
-        // 2. Restore Question Count
+        // 1. Restore Question Count
         const savedCount = storage.get(STORAGE_KEYS.LAST_COUNT);
         if (savedCount) {
           const parsed = parseInt(savedCount, 10);
@@ -3259,9 +3111,9 @@ ${seenPromptSnippet}`;
           }
         }
 
-        // 3. Restore Difficulty
+        // 2. Restore Difficulty Level
         const savedDiff = storage.get(STORAGE_KEYS.LAST_DIFFICULTY);
-        if (savedDiff) {
+        if (savedDiff && ['Easy', 'Medium', 'Hard'].includes(savedDiff)) {
           activeDifficulty = savedDiff;
           difficultySelector.querySelectorAll('.segmented-btn').forEach(b => {
             if (b.getAttribute('data-diff') === activeDifficulty) {
@@ -3272,29 +3124,25 @@ ${seenPromptSnippet}`;
           });
         }
 
-        // 4. Restore Last Topic
+        // 3. Restore Last Topic
         const savedTopic = storage.get(STORAGE_KEYS.LAST_TOPIC);
-        if (savedTopic) {
-          const isCurated = CURATED_TOPICS.some(t => t.name === savedTopic);
-          if (isCurated) {
-            activeTopic = savedTopic;
-          } else {
-            activeTopic = savedTopic;
-            customTopicInput.value = savedTopic;
-          }
+        if (savedTopic && savedTopic.trim()) {
+          topicInput.value = savedTopic.trim();
+        } else {
+          topicInput.value = 'Data Structures & Algorithms';
         }
 
-        // 5. Render Curated Topics Grid & Dedup Status
-        renderTopicsGrid();
+        // 4. Render Suggestion Chips & Dedup Status
+        renderSuggestionChips();
         updateDedupUI();
 
-        // 6. Restore manual JSON if any
+        // 5. Restore manual JSON if any
         const savedJson = storage.get(STORAGE_KEYS.LAST_JSON);
         if (savedJson) {
           jsonInput.value = savedJson;
         }
 
-        // 7. Render past scores
+        // 6. Render past scores
         renderScoresList();
       }
 
